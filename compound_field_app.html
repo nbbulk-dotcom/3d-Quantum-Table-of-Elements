@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🌌 Codex Compound Field Render</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1 {
+      color: #00bfff;
+    }
+    select {
+      padding: 8px;
+      margin: 10px;
+      background-color: #222;
+      color: #eee;
+      border: 1px solid #555;
+    }
+    #warning {
+      color: #ff4444;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🌌 Codex Compound Field Render</h1>
+  <select id="elementA" onchange="renderCompound()"></select>
+  <select id="elementB" onchange="renderCompound()"></select>
+  <select id="elementC" onchange="renderCompound()"></select>
+  <div id="warning"></div>
+  <div id="plot" style="width:100%;height:600px;"></div>
+
+  <script>
+    const elements = [
+      { Element: "Hydrogen", Volume: 14.1, Density: 0.0899, Energy: 13.6, Toxicity: 1 },
+      { Element: "Oxygen", Volume: 14.0, Density: 1.429, Energy: 13.62, Toxicity: 1 },
+      { Element: "Zinc", Volume: 9.3, Density: 7.14, Energy: 9.4, Toxicity: 1 },
+      { Element: "Phosphorus", Volume: 17.0, Density: 1.82, Energy: 10.49, Toxicity: 2 },
+      { Element: "Magnesium", Volume: 13.9, Density: 1.738, Energy: 7.64, Toxicity: 1 },
+      { Element: "Helium", Volume: 22.4, Density: 0.1786, Energy: 24.6, Toxicity: 0 },
+      { Element: "Mercury", Volume: 14.8, Density: 13.55, Energy: 10.44, Toxicity: 9 },
+      { Element: "Lead", Volume: 18.3, Density: 11.35, Energy: 7.42, Toxicity: 9 },
+      { Element: "Uranium", Volume: 12.0, Density: 18.95, Energy: 6.51, Toxicity: 8 },
+      { Element: "Neutronium", Volume: 0.0, Density: 0.0, Energy: 0.0, Toxicity: 0 },
+      { Element: "Clarion", Volume: 11.2, Density: 6.1, Energy: 9.1, Toxicity: 0 },
+      { Element: "Vaulton", Volume: 10.5, Density: 5.9, Energy: 8.8, Toxicity: 0 },
+      { Element: "Bindra", Volume: 12.3, Density: 6.4, Energy: 9.3, Toxicity: 0 },
+      { Element: "Loopion", Volume: 13.1, Density: 6.8, Energy: 9.7, Toxicity: 0 }
+    ];
+
+    function elemFreq(vol, den, en) {
+      const phi = 1.618;
+      return ((vol * den) / (en + 1e-6)) * phi;
+    }
+
+    function spiralCoords(e) {
+      const phiMod = 1.618 ** 7;
+      const dome = Math.sin(Math.PI * e.Volume / 188);
+      const x = e.Volume * Math.sin(phiMod * dome);
+      const y = e.Density * Math.cos(phiMod / (dome + 0.01));
+      const z = e.Energy * Math.sin(phiMod / 2 + dome);
+      return { x, y, z };
+    }
+    function renderCompound() {
+      const a = document.getElementById("elementA").value;
+      const b = document.getElementById("elementB").value;
+      const c = document.getElementById("elementC").value;
+      const A = elements.find(e => e.Element === a);
+      const B = elements.find(e => e.Element === b);
+      const C = elements.find(e => e.Element === c);
+
+      const coordsA = spiralCoords(A);
+      const coordsB = spiralCoords(B);
+      const coordsC = spiralCoords(C);
+
+      const compound = [A, B, C];
+      const malefic = compound.filter(e => e.Toxicity > 7);
+      const warningText = malefic.length > 0
+        ? "⚠️ Codex Alert: This compound contains malefic elements. Proceed with caution."
+        : "";
+
+      const energy = ((A.Energy + B.Energy + C.Energy) / 3).toFixed(2);
+      const density = ((A.Density + B.Density + C.Density) / 3).toFixed(2);
+      const volume = (A.Volume + B.Volume + C.Volume).toFixed(2);
+      const freq = elemFreq(+volume, +density, +energy).toFixed(2);
+      const compoundCoords = spiralCoords({
+        Volume: +volume,
+        Density: +density,
+        Energy: +energy
+      });
+
+      const traces = [
+        {
+          x: [coordsA.x],
+          y: [coordsA.y],
+          z: [coordsA.z],
+          mode: 'markers+text',
+          type: 'scatter3d',
+          marker: { size: 10, color: 'blue' },
+          text: [`${A.Element}`],
+          textposition: 'top center'
+        },
+        {
+          x: [coordsB.x],
+          y: [coordsB.y],
+          z: [coordsB.z],
+          mode: 'markers+text',
+          type: 'scatter3d',
+          marker: { size: 10, color: 'green' },
+          text: [`${B.Element}`],
+          textposition: 'top center'
+        },
+        {
+          x: [coordsC.x],
+          y: [coordsC.y],
+          z: [coordsC.z],
+          mode: 'markers+text',
+          type: 'scatter3d',
+          marker: { size: 10, color: 'purple' },
+          text: [`${C.Element}`],
+          textposition: 'top center'
+        },
+        {
+          x: [compoundCoords.x],
+          y: [compoundCoords.y],
+          z: [compoundCoords.z],
+          mode: 'markers+text',
+          type: 'scatter3d',
+          marker: { size: 14, color: 'yellow', symbol: 'diamond' },
+          text: [`Final Compound<br>Freq: ${freq}`],
+          textposition: 'bottom center'
+        }
+      ];
+
+      const layout = {
+        margin: { l: 0, r: 0, b: 0, t: 0 },
+        scene: {
+          xaxis: { title: 'Spiral X' },
+          yaxis: { title: 'Spiral Y' },
+          zaxis: { title: 'Spiral Z' }
+        }
+      };
+
+      Plotly.newPlot('plot', traces, layout);
+      document.getElementById("warning").innerText = warningText;
+    }
+
+    window.onload = function() {
+      const selectA = document.getElementById("elementA");
+      const selectB = document.getElementById("elementB");
+      const selectC = document.getElementById("elementC");
+      const options = elements.map(e => `<option value="${e.Element}">${e.Element}</option>`).join('');
+      selectA.innerHTML = options;
+      selectB.innerHTML = options;
+      selectC.innerHTML = options;
+      renderCompound();
+    };
+  </script>
+
+</body>
+</html>
