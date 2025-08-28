@@ -40,7 +40,13 @@
     <h2>🖼️ Field Visualization</h2>
     <button onclick="viewFieldRender()">🔬 View Element Field Render</button>
     <button onclick="viewFinalField()">🌌 View Final Material Field</button>
-  </div>
+  </div
+    <div class="panel">
+  <h2>🌀 Spiral GIF Generator</h2>
+  <button onclick="window.open('compound_field_app.html', '_blank')">
+    🎞️ Generate Spiral GIF in New Window
+  </button>
+</div>
   <script>
     // Complete CSV data as provided (first 103 lines shown below, remainder will be in Part 2)
     const elementsCSV = `Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier,FunctionName,FunctionPolarity,FunctionDescription
@@ -225,12 +231,7 @@ Lawrencium,103,262,9.3,15.6,6.72,Actinide,Core,#,#,#
     function viewFinalField() {
       window.open("compound_field_app.html", "_blank");
     }
-<div class="panel">
-  <h2>🌀 Spiral GIF Generator</h2>
-  <button onclick="window.open('compound_field_app.html', '_blank')">
-    🎞️ Generate Spiral GIF in New Window
-  </button>
-</div>
+
 
     window.onload = () => {
       const selectA = document.getElementById("elementA");
