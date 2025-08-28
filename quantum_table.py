@@ -1,111 +1,95 @@
-import numpy as np
-import pandas as pd
-import matplotlib.pyplot as plt
-from mpl_toolkits.mplot3d import Axes3D
+# === quantum_table.py ===
+# Codex Spiral Engine — Elemental Frequency and Spiral Mapping
 
-# === Load Codex Registry ===
-data = pd.read_csv('data/elements_codex.csv')
+import math
 
-# === Normalize Core Fields ===
-def normalize_column(col):
-    return (col - col.min()) / (col.max() - col.min())
+phi = 1.618
+phi_mod = phi ** 7
 
-data['Volume_norm'] = normalize_column(data['Volume'])
-data['Density_norm'] = normalize_column(data['Density'])
-data['Energy_norm'] = normalize_column(data['Energy'])
+def elem_freq(volume, density, energy):
+    """Calculate φ-scaled resonance frequency."""
+    return (volume * density) / (energy + 1e-6) * phi
 
-# === Resonance Coordinate Generator ===
-def resonance_coordinates(row):
-    phi = 1.618
-    tier = row.get('ResonanceTier', 'Core')
-    phi_mod = phi ** {'Core': 7, 'Transdimensional': 8, 'Isotopic': 9, 'Archetypal': 9, 'Boundary': 9}.get(tier, 7)
-    polarity_scale = {'Useful': 1, 'Malific': -1, 'Neutral': 0}.get(row.get('FunctionPolarity', 'Neutral'), 0)
-    dome_factor = np.sin(np.pi * row['AtomicNumber'] / 188)
-    x = polarity_scale * row['Volume_norm'] * np.sin(phi_mod * dome_factor)
-    y = polarity_scale * row['Density_norm'] * np.cos(phi_mod / dome_factor)
-    z = polarity_scale * row['Energy_norm'] * np.sin(phi_mod / 2 + dome_factor)
-    return x, y, z
+def spiral_coords(volume, density, energy):
+    """Map element to spiral coordinates."""
+    dome = math.sin(math.pi * volume / 188)
+    x = volume * math.sin(phi_mod * dome)
+    y = density * math.cos(phi_mod / (dome + 0.01))
+    z = energy * math.sin(phi_mod / 2 + dome)
+    return round(x, 3), round(y, 3), round(z, 3)
 
-# === Apply Spiral Transformation ===
-data['x'], data['y'], data['z'] = zip(*data.apply(resonance_coordinates, axis=1))
+def compound_freq(elements):
+    """Calculate compound frequency from 3 elements."""
+    total_volume = sum(e['Volume'] for e in elements)
+    avg_density = sum(e['Density'] for e in elements) / 3
+    avg_energy = sum(e['Energy'] for e in elements) / 3
+    return elem_freq(total_volume, avg_density, avg_energy)
 
-# === Polarity Color Mapping ===
-polarity_colors = {'Useful': 'blue', 'Malific': 'red', 'Neutral': 'gray'}
+def compound_coords(elements):
+    """Calculate spiral coordinates for compound."""
+    total_volume = sum(e['Volume'] for e in elements)
+    avg_density = sum(e['Density'] for e in elements) / 3
+    avg_energy = sum(e['Energy'] for e in elements) / 3
+    return spiral_coords(total_volume, avg_density, avg_energy)
 
-# === Spiral Plot ===
-fig = plt.figure(figsize=(14, 10))
-ax = fig.add_subplot(111, projection='3d')
+def validate_element(e):
+    """Ensure element has valid numeric fields."""
+    try:
+        return all([
+            isinstance(e['Volume'], (int, float)),
+            isinstance(e['Density'], (int, float)),
+            isinstance(e['Energy'], (int, float)),
+            e['Energy'] > 0
+        ])
+    except KeyError:
+        return False
 
-for _, row in data.iterrows():
-    color = polarity_colors.get(row.get('FunctionPolarity'), 'gray')
-    ax.scatter(row['x'], row['y'], row['z'], color=color, s=80, alpha=0.8)
-
-# === Annotate Neutronium ===
-neutronium = data[data['AtomicNumber'] == 188]
-if not neutronium.empty:
-    x, y, z = neutronium.iloc[0][['x', 'y', 'z']]
-    ax.text(x, y, z, "Neutronium (188)", fontsize=10, color='white')
-
-# === Transmutation Function ===
-def elem_freq(vol, den, en):
-    return round((vol * den) / (en + 1e-6), 2)
-
-def transmutate():
-    pairs = [
-        ('Obscurium', 'Clarion'),
-        ('Severon', 'Bindra'),
-        ('Collapseon', 'Vaulton'),
-        ('Oblivium', 'Neutronium'),
-        ('Fracturonite', 'Loopion'),
-        ('Disruptium', 'Resonex'),
-        ('Arsenic', 'Phosphorus'),
-        ('Mercury', 'Zinc'),
-        ('Lead', 'Calcium'),
-        ('Polonium', 'Selenium'),
-        ('Thallium', 'Magnesium'),
-        ('Radon', 'Argon'),
-        ('Technetium', 'Molybdenum'),
-        ('Astatine', 'Iodine')
-    ]
-    for malefic, partner in pairs:
-        m = data[data['Element'] == malefic].iloc[0]
-        p = data[data['Element'] == partner].iloc[0]
-        mf = elem_freq(m['Volume'], m['Density'], m['Energy'])
-        pf = elem_freq(p['Volume'], p['Density'], p['Energy'])
-        ax.plot([m['x'], p['x']], [m['y'], p['y']], [m['z'], p['z']], color='lightblue', linewidth=2, alpha=0.6)
-        print(f"{malefic} → {partner} | ΔFreq = {abs(mf - pf)}")
-
-# === Coupling Graph Function ===
-def coupling_graph():
-    for _, row in data.iterrows():
-        glyph = row.get('FunctionName', '')[:3]
-        ax.text(row['x'], row['y'], row['z'], glyph, fontsize=8, color='white', alpha=0.6)
-
-def toxicity_nullify(target):
-    row = data[data['Element'] == target].iloc[0]
-    freq = elem_freq(row['Volume'], row['Density'], row['Energy'])
-    tox = row['Toxicity']
-    phi = 1.618
-
-    # Scalar wave emission logic
-    null_freq = round(phi * (10 - tox) / 10, 2)  # Higher toxicity → lower null freq
-    delta = round(abs(freq - null_freq), 4)
-
-    if delta < 0.1:
-        print(f"✅ {target} nullified via scalar wave at freq {null_freq} (Δ = {delta})")
-        ax.text(row['x'], row['y'], row['z'], f"{target} ☯", color='cyan', fontsize=10)
+def polarity_map(freqA, freqB):
+    """Determine polarity between two frequencies."""
+    delta = abs(freqA - freqB)
+    if delta < 0.3:
+        return "Harmonic"
+    elif delta < 0.8:
+        return "Neutral"
     else:
-        print(f"⚠️ {target} not nullified (Δ = {delta}) — adjust wave alignment")
+        return "Disruptive"
 
-# === Execute Enhancements ===
-transmutate()
-coupling_graph()
+def transmutate(base_element, all_elements):
+    """Suggest stabilizers for a malefic element."""
+    base_freq = elem_freq(base_element['Volume'], base_element['Density'], base_element['Energy'])
+    candidates = [
+        e for e in all_elements
+        if e['Toxicity'] <= 3 and e['Element'] != base_element['Element']
+    ]
+    candidates.sort(key=lambda e: abs(elem_freq(e['Volume'], e['Density'], e['Energy']) - base_freq))
+    return candidates[:5]
 
-# === Axis Labels and Title ===
-ax.set_title('🌀 Quantum Table of Elements — Codex Spiral with Transmutation & Glyphs', fontsize=14)
-ax.set_xlabel('Spiral X')
-ax.set_ylabel('Spiral Y')
-ax.set_zlabel('Spiral Z')
-ax.grid(True)
-plt.tight_layout()
-plt.show()
+def nullify(compound, all_elements):
+    """Suggest nullifiers for toxic compounds."""
+    malefic = [e for e in compound if e['Toxicity'] > 7]
+    if not malefic:
+        return []
+    avg_freq = compound_freq(compound)
+    nullifiers = [
+        e for e in all_elements
+        if e['Toxicity'] == 0 and abs(elem_freq(e['Volume'], e['Density'], e['Energy']) - avg_freq) < 1.0
+    ]
+    nullifiers.sort(key=lambda e: abs(elem_freq(e['Volume'], e['Density'], e['Energy']) - avg_freq))
+    return nullifiers[:3]
+
+def codex_scroll(elements):
+    """Generate Codex Scroll metadata."""
+    freq = compound_freq(elements)
+    coords = compound_coords(elements)
+    polarity = "Malefic" if any(e['Toxicity'] > 7 for e in elements) else "Useful"
+    return {
+        "Elements": [e['Element'] for e in elements],
+        "ResonanceFrequency": round(freq, 3),
+        "SpiralCoordinates": {
+            "X": coords[0],
+            "Y": coords[1],
+            "Z": coords[2]
+        },
+        "Polarity": polarity,
+        "ToxicityFlags": [e['Element'] for e in elements if e['Toxicity'] > 7]
+    }
