@@ -1,12 +1,10 @@
 # === render_final_compound.py ===
+# Unified Codex Compound Renderer — Static + Interactive Modes
+
 import numpy as np
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
-
-# === Selected Elements
-A = {'Element': 'Zinc', 'AtomicNumber': 30, 'Volume': 9.3, 'Density': 7.14, 'Energy': 9.4}
-B = {'Element': 'Phosphorus', 'AtomicNumber': 15, 'Volume': 17.0, 'Density': 1.82, 'Energy': 10.49}
-C = {'Element': 'Clarion', 'AtomicNumber': 136, 'Volume': 11.2, 'Density': 6.1, 'Energy': 9.1}
+import plotly.graph_objects as go
 
 # === Frequency Calculator
 def elem_freq(vol, den, en):
@@ -18,35 +16,95 @@ def resonance_coordinates(e):
     phi_mod = 1.618 ** 7
     dome = np.sin(np.pi * e['AtomicNumber'] / 188)
     x = e['Volume'] * np.sin(phi_mod * dome)
-    y = e['Density'] * np.cos(phi_mod / dome)
+    y = e['Density'] * np.cos(phi_mod / (dome + 0.01))
     z = e['Energy'] * np.sin(phi_mod / 2 + dome)
-    return x, y, z
+    return round(x, 3), round(y, 3), round(z, 3)
 
-# === Final Molecule Properties
-energy = (A['Energy'] + B['Energy'] + C['Energy']) / 3
-density = (A['Density'] + B['Density'] + C['Density']) / 3
-volume = A['Volume'] + B['Volume'] + C['Volume']
-freq = elem_freq(volume, density, energy)
+# === Compound Properties
+def compound_properties(elements):
+    energy = sum(e['Energy'] for e in elements) / 3
+    density = sum(e['Density'] for e in elements) / 3
+    volume = sum(e['Volume'] for e in elements)
+    freq = elem_freq(volume, density, energy)
+    anchor = {
+        'Element': 'Final Molecule',
+        'AtomicNumber': 94,
+        'Volume': volume,
+        'Density': density,
+        'Energy': energy,
+        'Freq': freq
+    }
+    return anchor
 
-# === Plot Setup
-fig = plt.figure(figsize=(10, 8))
-ax = fig.add_subplot(111, projection='3d')
+# === Render Dispatcher
+def render_final_compound(elements, mode="interactive"):
+    anchor = compound_properties(elements)
+    if mode == "static":
+        render_static(elements, anchor)
+    elif mode == "interactive":
+        render_interactive(elements, anchor)
+    else:
+        raise ValueError("Mode must be 'static' or 'interactive'")
 
-# === Render Elements
-for e in [A, B, C]:
-    x, y, z = resonance_coordinates(e)
-    ax.scatter(x, y, z, color='blue', s=120)
-    ax.text(x, y, z, e['Element'], fontsize=10, color='white')
 
-# === Render Final Molecule
-x, y, z = resonance_coordinates({'AtomicNumber': 94, 'Volume': volume, 'Density': density, 'Energy': energy})
-ax.scatter(x, y, z, color='cyan', s=200, edgecolors='white', linewidths=2)
-ax.text(x, y, z, f"Final Molecule\nFreq: {round(freq,2)}", fontsize=12, color='yellow')
+# === Static Renderer (Matplotlib)
+def render_static(elements, anchor):
+    fig = plt.figure(figsize=(10, 8))
+    ax = fig.add_subplot(111, projection='3d')
 
-# === Labels and Spiral Anchor
-ax.set_title("🌌 Final Material Field — Codex Compound", fontsize=14)
-ax.set_xlabel('Spiral X')
-ax.set_ylabel('Spiral Y')
-ax.set_zlabel('Spiral Z')
-plt.tight_layout()
-plt.show()
+    # Render individual elements
+    for e in elements:
+        x, y, z = resonance_coordinates(e)
+        ax.scatter(x, y, z, color='blue', s=120)
+        ax.text(x, y, z, e['Element'], fontsize=10, color='white')
+
+    # Render compound anchor
+    x, y, z = resonance_coordinates(anchor)
+    ax.scatter(x, y, z, color='cyan', s=200, edgecolors='white', linewidths=2)
+    ax.text(x, y, z, f"{anchor['Element']}\nFreq: {round(anchor['Freq'], 2)}", fontsize=12, color='yellow')
+
+    # Labels and Spiral Anchor
+    ax.set_title("🌌 Final Material Field — Codex Compound", fontsize=14)
+    ax.set_xlabel('Spiral X')
+    ax.set_ylabel('Spiral Y')
+    ax.set_zlabel('Spiral Z')
+    plt.tight_layout()
+    plt.show()
+
+# === Interactive Renderer (Plotly)
+def render_interactive(elements, anchor):
+    traces = []
+
+    # Render individual elements
+    colors = ['blue', 'green', 'purple']
+    for i, e in enumerate(elements):
+        x, y, z = resonance_coordinates(e)
+        traces.append(go.Scatter3d(
+            x=[x], y=[y], z=[z],
+            mode='markers+text',
+            marker=dict(size=10, color=colors[i]),
+            text=[e['Element']],
+            textposition='top center'
+        ))
+
+    # Render compound anchor
+    x, y, z = resonance_coordinates(anchor)
+    traces.append(go.Scatter3d(
+        x=[x], y=[y], z=[z],
+        mode='markers+text',
+        marker=dict(size=14, color='yellow', symbol='diamond'),
+        text=[f"{anchor['Element']}<br>Freq: {round(anchor['Freq'], 2)}"],
+        textposition='bottom center'
+    ))
+
+    fig = go.Figure(data=traces)
+    fig.update_layout(
+        title="Codex Spiral Field — Compound",
+        scene=dict(
+            xaxis_title='Spiral X',
+            yaxis_title='Spiral Y',
+            zaxis_title='Spiral Z'
+        ),
+        margin=dict(l=0, r=0, b=0, t=40)
+    )
+    fig.show()
