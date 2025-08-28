@@ -1,19 +1,27 @@
-const elements = [
-  { Element: "Hydrogen", Volume: 14.1, Density: 0.0899, Energy: 13.6, Toxicity: 1 },
-  { Element: "Oxygen", Volume: 14.0, Density: 1.429, Energy: 13.62, Toxicity: 1 },
-  { Element: "Zinc", Volume: 9.3, Density: 7.14, Energy: 9.4, Toxicity: 1 },
-  { Element: "Phosphorus", Volume: 17.0, Density: 1.82, Energy: 10.49, Toxicity: 2 },
-  { Element: "Magnesium", Volume: 13.9, Density: 1.738, Energy: 7.64, Toxicity: 1 },
-  { Element: "Helium", Volume: 22.4, Density: 0.1786, Energy: 24.6, Toxicity: 0 },
-  { Element: "Mercury", Volume: 14.8, Density: 13.55, Energy: 10.44, Toxicity: 9 },
-  { Element: "Lead", Volume: 18.3, Density: 11.35, Energy: 7.42, Toxicity: 9 },
-  { Element: "Uranium", Volume: 12.0, Density: 18.95, Energy: 6.51, Toxicity: 8 },
-  { Element: "Neutronium", Volume: 0.0, Density: 0.0, Energy: 0.0, Toxicity: 0 },
-  { Element: "Clarion", Volume: 11.2, Density: 6.1, Energy: 9.1, Toxicity: 0 },
-  { Element: "Vaulton", Volume: 10.5, Density: 5.9, Energy: 8.8, Toxicity: 0 },
-  { Element: "Bindra", Volume: 12.3, Density: 6.4, Energy: 9.3, Toxicity: 0 },
-  { Element: "Loopion", Volume: 13.1, Density: 6.8, Energy: 9.7, Toxicity: 0 }
-];
+// === script.js ===
+// Codex Interface Logic with CSV Loader
+
+let elements = [];
+
+function loadElementsFromCSV() {
+  fetch('https://raw.githubusercontent.com/nbbulk-dotcom/3d-Quantum-Table-of-Elements/main/data/elements.csv')
+    .then(response => response.text())
+    .then(data => {
+      const lines = data.trim().split('\n').slice(1);
+      elements = lines.map(line => {
+        const [Element, AtomicNumber, Volume, Density, Energy, Family, Toxicity] = line.split(',');
+        return {
+          Element,
+          AtomicNumber: +AtomicNumber,
+          Volume: +Volume,
+          Density: +Density,
+          Energy: +Energy,
+          Toxicity: +Toxicity
+        };
+      });
+      initializeDropdowns();
+    });
+}
 
 function elemFreq(vol, den, en) {
   const phi = 1.618;
@@ -24,7 +32,10 @@ function updatePairings() {
   const selectedA = document.getElementById("elementA").value;
   const base = elements.find(e => e.Element === selectedA);
   const baseFreq = elemFreq(base.Volume, base.Density, base.Energy);
-  const pairings = elements.filter(e => Math.abs(elemFreq(e.Volume, e.Density, e.Energy) - baseFreq) < 0.5 && e.Toxicity < 3);
+  const pairings = elements.filter(e =>
+    Math.abs(elemFreq(e.Volume, e.Density, e.Energy) - baseFreq) < 0.5 &&
+    e.Toxicity < 3
+  );
   const selectB = document.getElementById("elementB");
   selectB.innerHTML = pairings.map(e => `<option>${e.Element}</option>`).join('');
   updateRefinements();
@@ -47,7 +58,8 @@ function synthesizeMolecule() {
 
   const malefic = [A, B, C].filter(e => e.Toxicity > 7);
   if (malefic.length > 0) {
-    document.getElementById("codexWarning").innerText = "⚠️ You are violating a Prime Directive of the UNIVERSAL CODEX. Malefic combinations are not permitted.";
+    document.getElementById("codexWarning").innerText =
+      "⚠️ You are violating a Prime Directive of the UNIVERSAL CODEX. Malefic combinations are not permitted.";
     document.getElementById("moleculeSummary").innerText = "⛔ Synthesis blocked.";
     document.getElementById("useCase").innerText = "Codex integrity preserved.";
     return;
@@ -87,8 +99,12 @@ function viewFinalField() {
   window.open("compound_field_app.html", "_blank");
 }
 
-window.onload = () => {
+function initializeDropdowns() {
   const selectA = document.getElementById("elementA");
   selectA.innerHTML = elements.map(e => `<option>${e.Element}</option>`).join('');
   updatePairings();
+}
+
+window.onload = () => {
+  loadElementsFromCSV();
 };
