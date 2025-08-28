@@ -45,13 +45,15 @@ data['x'], data['y'], data['z'] = zip(*data.apply(resonance_coordinates, axis=1)
 # === Visual Rendering ===
 fig = plt.figure(figsize=(14, 10))
 ax = fig.add_subplot(111, projection='3d')
-
 # === Color Coding by Polarity ===
-polarity_colors = {'Useful': 'cyan', 'Malific': 'magenta'}
+# === Updated Polarity Color Mapping ===
+polarity_colors = {'Useful': 'blue', 'Malific': 'red', 'Neutral': 'gray'}
+
 default_color = 'gray'
 
 for _, row in data.iterrows():
-    color = polarity_colors.get(row.get('FunctionPolarity'), default_color)
+color = polarity_colors.get(row.get('FunctionPolarity'), 'gray')
+
     ax.scatter(row['x'], row['y'], row['z'],
                color=color,
                s=80,
