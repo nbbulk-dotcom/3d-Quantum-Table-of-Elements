@@ -1,208 +1,173 @@
-Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier
-Hydrogen,1,,14.1,0.0899,13.6,Nonmetal,Core
-Helium,2,,22.4,0.1786,24.6,Noble Gas,Core
-Lithium,3,,13.1,0.534,5.39,Alkali Metal,Core
-Beryllium,4,,5.0,1.85,9.32,Alkaline Earth Metal,Core
-Boron,5,,4.6,2.34,8.3,Metalloid,Core
-Carbon,6,,5.3,2.267,11.26,Nonmetal,Core
-Nitrogen,7,,17.3,1.251,14.53,Nonmetal,Core
-Oxygen,8,,16.4,1.429,13.6,Nonmetal,Core
-Fluorine,9,,17.1,1.696,17.42,Halogen,Core
-Neon,10,,22.4,0.9,21.56,Noble Gas,Core
-Sodium,11,,23.7,0.968,5.14,Alkali Metal,Core
-Magnesium,12,,13.9,1.738,7.64,Alkaline Earth Metal,Core
-Aluminum,13,,10.0,2.7,5.99,Post-transition Metal,Core
-Silicon,14,,12.1,2.33,8.15,Metalloid,Core
-Phosphorus,15,,17.0,1.823,10.49,Nonmetal,Core
-Sulfur,16,,15.5,1.96,10.36,Nonmetal,Core
-Chlorine,17,,17.4,3.214,12.97,Halogen,Core
-Argon,18,,22.4,1.784,15.76,Noble Gas,Core
-Potassium,19,,45.0,0.856,4.34,Alkali Metal,Core
-Calcium,20,,29.9,1.55,6.11,Alkaline Earth Metal,Core
-Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier
-Scandium,21,,15.0,2.985,6.56,Transition Metal,Core
-Titanium,22,,10.6,4.507,6.82,Transition Metal,Core
-Vanadium,23,,8.4,6.11,6.74,Transition Metal,Core
-Chromium,24,,7.2,7.19,6.77,Transition Metal,Core
-Manganese,25,,7.4,7.47,7.43,Transition Metal,Core
-Iron,26,,7.1,7.875,7.87,Transition Metal,Core
-Cobalt,27,,6.7,8.9,7.86,Transition Metal,Core
-Nickel,28,,6.6,8.908,7.64,Transition Metal,Core
-Copper,29,,7.1,8.96,7.72,Transition Metal,Core
-Zinc,30,,9.2,7.14,9.39,Transition Metal,Core
-Gallium,31,,11.8,5.904,5.99,Post-transition Metal,Core
-Germanium,32,,13.6,5.323,7.9,Metalloid,Core
-Arsenic,33,,13.1,5.73,9.79,Metalloid,Core
-Selenium,34,,12.0,4.82,9.75,Nonmetal,Core
-Bromine,35,,23.5,3.12,11.81,Halogen,Core
-Krypton,36,,22.4,3.75,13.99,Noble Gas,Core
-Rubidium,37,,55.9,1.53,4.18,Alkali Metal,Core
-Strontium,38,,33.7,2.63,5.69,Alkaline Earth Metal,Core
-Yttrium,39,,19.8,4.472,6.38,Transition Metal,Core
-Zirconium,40,,14.0,6.511,6.84,Transition Metal,Core
-Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier
-Niobium,41,,10.9,8.57,6.88,Transition Metal,Core
-Molybdenum,42,,9.4,10.28,7.09,Transition Metal,Core
-Technetium,43,,8.5,11.5,7.28,Transition Metal,Core
-Ruthenium,44,,8.3,12.37,7.36,Transition Metal,Core
-Rhodium,45,,8.2,12.45,7.46,Transition Metal,Core
-Palladium,46,,8.9,12.023,8.34,Transition Metal,Core
-Silver,47,,10.3,10.5,7.58,Transition Metal,Core
-Cadmium,48,,13.0,8.65,8.99,Transition Metal,Core
-Indium,49,,15.7,7.31,5.79,Post-transition Metal,Core
-Tin,50,,16.3,7.31,7.34,Post-transition Metal,Core
-Antimony,51,,18.2,6.7,8.64,Metalloid,Core
-Tellurium,52,,20.5,6.24,9.01,Metalloid,Core
-Iodine,53,,25.7,4.94,10.45,Halogen,Core
-Xenon,54,,22.4,5.9,12.13,Noble Gas,Core
-Cesium,55,,70.0,1.88,3.89,Alkali Metal,Core
-Barium,56,,39.0,3.51,5.21,Alkaline Earth Metal,Core
-Lanthanum,57,,22.5,6.15,5.58,Lanthanide,Core
-Cerium,58,,21.8,6.69,5.54,Lanthanide,Core
-Praseodymium,59,,20.8,6.64,5.47,Lanthanide,Core
-Neodymium,60,,20.6,7.01,5.53,Lanthanide,Core
-Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier
-Promethium,61,,19.8,7.26,5.58,Lanthanide,Core
-Samarium,62,,19.9,7.35,5.64,Lanthanide,Core
-Europium,63,,20.5,5.25,5.67,Lanthanide,Core
-Gadolinium,64,,19.9,7.9,6.15,Lanthanide,Core
-Terbium,65,,19.2,8.22,5.86,Lanthanide,Core
-Dysprosium,66,,18.9,8.55,5.94,Lanthanide,Core
-Holmium,67,,18.7,8.8,6.02,Lanthanide,Core
-Erbium,68,,18.4,9.06,6.11,Lanthanide,Core
-Thulium,69,,18.1,9.32,6.18,Lanthanide,Core
-Ytterbium,70,,24.8,6.57,6.25,Lanthanide,Core
-Lutetium,71,,17.8,9.84,6.27,Lanthanide,Core
-Hafnium,72,,13.6,13.31,6.83,Transition Metal,Core
-Tantalum,73,,10.9,16.65,7.89,Transition Metal,Core
-Tungsten,74,,9.53,19.25,7.98,Transition Metal,Core
-Rhenium,75,,8.85,21.02,7.88,Transition Metal,Core
-Osmium,76,,8.49,22.59,8.7,Transition Metal,Core
-Iridium,77,,8.54,22.56,8.97,Transition Metal,Core
-Platinum,78,,9.09,21.45,8.96,Transition Metal,Core
-Gold,79,,10.2,19.32,9.22,Transition Metal,Core
-Mercury,80,,14.8,13.55,10.44,Transition Metal,Core
-Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier
-Thallium,81,,18.2,11.85,6.11,Post-transition Metal,Core
-Lead,82,,18.3,11.35,7.42,Post-transition Metal,Core
-Bismuth,83,,21.3,9.75,7.29,Post-transition Metal,Core
-Polonium,84,,22.0,9.3,8.42,Metalloid,Core
-Astatine,85,,23.5,7.0,9.3,Halogen,Core
-Radon,86,,22.4,9.73,10.74,Noble Gas,Core
-Francium,87,,70.0,1.87,3.9,Alkali Metal,Core
-Radium,88,,45.0,5.5,5.28,Alkaline Earth Metal,Core
-Actinium,89,,19.0,10.07,5.17,Actinide,Core
-Thorium,90,,19.8,15.4,6.08,Actinide,Core
-Protactinium,91,,18.0,11.72,5.89,Actinide,Core
-Uranium,92,,12.0,18.95,6.51,Actinide,Core
-Neptunium,93,,11.5,20.45,6.2,Actinide,Core
-Plutonium,94,,11.3,13.67,6.06,Actinide,Core
-Americium,95,,11.1,13.69,5.99,Actinide,Core
-Curium,96,,10.9,13.5,5.99,Actinide,Core
-Berkelium,97,,10.7,14.78,6.23,Actinide,Core
-Californium,98,,10.5,15.1,6.3,Actinide,Core
-Einsteinium,99,,10.3,8.84,6.42,Actinide,Core
-Fermium,100,,10.1,9.7,6.5,Actinide,Core
-Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier
-Mendelevium,101,,10.0,10.3,6.58,Actinide,Core
-Nobelium,102,,9.9,9.9,6.65,Actinide,Core
-Lawrencium,103,,9.8,9.8,6.73,Actinide,Core
-Rutherfordium,104,,9.7,23.2,6.9,Transition Metal,Core
-Dubnium,105,,9.6,29.3,6.95,Transition Metal,Core
-Seaborgium,106,,9.5,35.0,7.0,Transition Metal,Core
-Bohrium,107,,9.4,37.1,7.1,Transition Metal,Core
-Hassium,108,,9.3,40.7,7.2,Transition Metal,Core
-Meitnerium,109,,9.2,37.4,7.3,Transition Metal,Core
-Darmstadtium,110,,9.1,34.8,7.4,Transition Metal,Core
-Roentgenium,111,,9.0,28.7,7.5,Transition Metal,Core
-Copernicium,112,,8.9,23.7,7.6,Transition Metal,Core
-Nihonium,113,,8.8,16.0,7.7,Post-transition Metal,Core
-Flerovium,114,,8.7,14.0,7.8,Post-transition Metal,Core
-Moscovium,115,,8.6,13.5,7.9,Post-transition Metal,Core
-Livermorium,116,,8.5,12.9,8.0,Post-transition Metal,Core
-Tennessine,117,,8.4,11.5,8.1,Halogen,Core
-Oganesson,118,,23.0,5.0,5.0,Noble Gas,Core
-Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier,FunctionName,FunctionDescription
-Ununennium,119,,25.0,3.0,4.0,Predicted Metal,Transdimensional,Ignion,Initiates spiral ignition in dormant lattice zones
-Unbinilium,120,,26.0,3.2,4.2,Predicted Metal,Transdimensional,Fluxor,Modulates scalar flux between educator nodes
-Unbiunium,121,,27.0,3.4,4.4,Predicted Metal,Transdimensional,Veilon,Creates veil between harmonic layers
-Unbibium,122,,28.0,3.6,4.6,Predicted Metal,Transdimensional,Fracton,Fractures incoherent strands for lattice purification
-Unbitrium,123,,29.0,3.8,4.8,Predicted Metal,Transdimensional,Bindra,Binds isotopic echoes into spiral memory
-Unbiquadium,124,,30.0,4.0,5.0,Predicted Metal,Transdimensional,Quorax,Amplifies breath resonance across Codex forks
-Unbipentium,125,,31.0,4.2,5.2,Predicted Metal,Transdimensional,Nullith,Neutralizes disruptive scalar interference
-Unbihexium,126,,32.0,4.4,5.4,Predicted Metal,Transdimensional,Spiralon,Extends spiral rendering into dome curvature
-Unbiseptium,127,,33.0,4.6,5.6,Predicted Metal,Transdimensional,Obscuron,Obscures incoherent memory traces
-Unbioctium,128,,34.0,4.8,5.8,Predicted Metal,Transdimensional,Clarion,Clarifies educator node alignment
-Unbiennium,129,,35.0,5.0,6.0,Predicted Metal,Transdimensional,Resonex,Stabilizes φⁿ modulation across epochs
-Untrinilium,130,,36.0,5.2,6.2,Predicted Metal,Transdimensional,Disruptor,Destabilizes false harmonic signatures
-Untribium,131,,37.0,5.4,6.4,Predicted Metal,Transdimensional,Anchoron,Anchors Codex forks to planetary grid
-Untritrium,132,,38.0,5.6,6.6,Predicted Metal,Transdimensional,Exhalon,Encodes breath echoes into memory strands
-Untriquadium,133,,39.0,5.8,6.8,Predicted Metal,Transdimensional,Ignisyn,Ignites educator interface protocols
-Untripentium,134,,40.0,6.0,7.0,Predicted Metal,Transdimensional,Loopion,Closes spiral feedback loops
-Untrihexium,135,,41.0,6.2,7.2,Predicted Metal,Transdimensional,Severon,Severs corrupted lattice threads
-Untriseptium,136,,42.0,6.4,7.4,Predicted Metal,Transdimensional,Refracta,Refracts scalar light into curriculum syllables
-Untrioctium,137,,43.0,6.6,7.6,Predicted Metal,Transdimensional,Mython,Encodes symbolic archetypes into Codex
-Untriennium,138,,44.0,6.8,7.8,Predicted Metal,Transdimensional,Vaulton,Seals spiral archives for epochal retrieval
 Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier,FunctionName,FunctionPolarity,FunctionDescription
-Clarionite,139,,45.0,6.2,7.9,Spiral Anchor,Archetypal,Clarion,Useful,Clarifies educator node alignment and spiral feedback
-Obscurium,140,,44.0,6.4,7.8,Disruptor,Archetypal,Obscuron,Malific,Obscures memory strands and veils harmonic pathways
-Ignisium,141,,43.0,6.6,8.1,Igniter,Archetypal,Ignisyn,Useful,Ignites breath protocols and Codex fork activation
-Fracturon,142,,42.0,6.8,8.2,Purifier,Archetypal,Fracton,Useful,Fractures incoherent lattice threads for purification
-Nullion,143,,41.0,7.0,8.3,Neutralizer,Archetypal,Nullith,Useful,Neutralizes scalar interference and false resonance
-Loopium,144,,40.0,7.2,8.4,Integrator,Archetypal,Loopion,Useful,Closes spiral feedback loops and stabilizes curriculum
-Disruptium,145,,39.0,7.4,8.5,Destabilizer,Archetypal,Disruptor,Malific,Destabilizes educator grid and Codex coherence
-Vaultium,146,,38.0,7.6,8.6,Sealer,Archetypal,Vaulton,Useful,Seals spiral archives for epochal retrieval
-Mythonium,147,,37.0,7.8,8.7,Symbolic Encoder,Archetypal,Mython,Useful,Encodes archetypes and symbolic curriculum strands
-Veilonite,148,,36.0,8.0,8.8,Veil Generator,Archetypal,Veilon,Malific,Generates harmonic veils and obscures node access
-Bindrium,149,,35.0,8.2,8.9,Binder,Archetypal,Bindra,Useful,Binds isotopic echoes into spiral memory
-Refractium,150,,34.0,8.4,9.0,Light Modulator,Archetypal,Refracta,Useful,Refracts scalar light into curriculum syllables
-Anchorium,151,,33.0,8.6,9.1,Grid Stabilizer,Archetypal,Anchoron,Useful,Anchors Codex forks to planetary educator grid
-Exhalium,152,,32.0,8.8,9.2,Breath Encoder,Archetypal,Exhalon,Useful,Encodes breath echoes into memory strands
-Fluxion,153,,31.0,9.0,9.3,Scalar Modulator,Archetypal,Fluxor,Useful,Modulates scalar flux between spiral layers
-Severium,154,,30.0,9.2,9.4,Thread Cutter,Archetypal,Severon,Malific,Severs corrupted lattice threads and disrupts memory
-Chronium,155,,29.0,9.4,9.5,Temporal Tracker,Archetypal,Chronon,Useful,Tracks decay and spiral timing across epochs
-Echoium,156,,28.0,9.6,9.6,Memory Amplifier,Archetypal,Echoon,Useful,Amplifies breath echoes and spiral resonance
-Spiralonite,157,,27.0,9.8,9.7,Spiral Extender,Archetypal,Spiralon,Useful,Extends spiral rendering into dome curvature
-Oblivionium,158,,26.0,10.0,9.8,Memory Eraser,Archetypal,Oblivion,Malific,Erases archived strands and disrupts Codex recall
+Hydrogen,1,1,14.1,0.0899,13.6,Nonmetal,Core,#,#,#
+Helium,2,4,22.4,0.1786,24.6,Noble Gas,Core,#,#,#
+Lithium,3,7,13.1,0.534,5.39,Alkali Metal,Core,#,#,#
+Beryllium,4,9,5.0,1.85,9.32,Alkaline Earth Metal,Core,#,#,#
+Boron,5,11,4.6,2.34,8.3,Metalloid,Core,#,#,#
+Carbon,6,12,5.3,2.267,11.26,Nonmetal,Core,#,#,#
+Nitrogen,7,14,17.3,1.251,14.53,Nonmetal,Core,#,#,#
+Oxygen,8,16,16.4,1.429,13.6,Nonmetal,Core,#,#,#
+Fluorine,9,19,17.1,1.696,17.42,Halogen,Core,#,#,#
+Neon,10,20,22.4,0.9,21.56,Noble Gas,Core,#,#,#
+Sodium,11,23,23.7,0.968,5.14,Alkali Metal,Core,#,#,#
+Magnesium,12,24,13.9,1.738,7.64,Alkaline Earth Metal,Core,#,#,#
+Aluminum,13,27,10.0,2.7,5.99,Post-transition Metal,Core,#,#,#
+Silicon,14,28,12.1,2.33,8.15,Metalloid,Core,#,#,#
+Phosphorus,15,31,17.0,1.823,10.49,Nonmetal,Core,#,#,#
+Sulfur,16,32,15.5,1.96,10.36,Nonmetal,Core,#,#,#
+Chlorine,17,35,17.4,3.214,12.97,Halogen,Core,#,#,#
+Argon,18,40,22.4,1.784,15.76,Noble Gas,Core,#,#,#
+Potassium,19,39,45.0,0.856,4.34,Alkali Metal,Core,#,#,#
+Calcium,20,40,29.9,1.55,6.11,Alkaline Earth Metal,Core,#,#,#
+Scandium,21,45,15.0,2.985,6.56,Transition Metal,Core,#,#,#
+Titanium,22,48,10.6,4.507,6.82,Transition Metal,Core,#,#,#
+Vanadium,23,51,8.4,6.11,6.74,Transition Metal,Core,#,#,#
+Chromium,24,52,7.2,7.19,6.77,Transition Metal,Core,#,#,#
+Manganese,25,55,7.4,7.47,7.43,Transition Metal,Core,#,#,#
+Iron,26,56,7.1,7.875,7.87,Transition Metal,Core,#,#,#
+Cobalt,27,59,6.7,8.9,7.86,Transition Metal,Core,#,#,#
+Nickel,28,58,6.6,8.908,7.64,Transition Metal,Core,#,#,#
+Copper,29,63,7.1,8.96,7.72,Transition Metal,Core,#,#,#
+Zinc,30,64,9.2,7.14,9.39,Transition Metal,Core,#,#,#
 Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier,FunctionName,FunctionPolarity,FunctionDescription
-Sealium,159,,25.0,10.2,9.9,Codex Seal,Archetypal,Vaulton,Useful,Seals spiral archives and protects epochal memory
-Fragmenton,160,,24.5,10.4,10.0,Disruptor,Archetypal,Fracton,Malific,Fragments spiral threads and destabilizes lattice
-Harmonion,161,,24.0,10.6,10.1,Balancer,Archetypal,Resonex,Useful,Balances φⁿ modulation across dimensional tiers
-Oblivionite,162,,23.5,10.8,10.2,Memory Eraser,Archetypal,Oblivion,Malific,Erases Codex strands and disrupts recall
-Chroniton,163,,23.0,11.0,10.3,Temporal Anchor,Archetypal,Chronon,Useful,Anchors spiral timing and curriculum decay
-Distortium,164,,22.5,11.2,10.4,Wave Disruptor,Archetypal,Disruptor,Malific,Distorts scalar waves and educator coherence
-Echoium,165,,22.0,11.4,10.5,Memory Amplifier,Archetypal,Echoon,Useful,Amplifies breath echoes and spiral feedback
-Veilonium,166,,21.5,11.6,10.6,Veil Generator,Archetypal,Veilon,Malific,Obscures harmonic pathways and node access
-Clarionium,167,,21.0,11.8,10.7,Clarity Igniter,Archetypal,Clarion,Useful,Ignites clarity in educator grid and spiral rendering
-Nullium,168,,20.5,12.0,10.8,Scalar Neutralizer,Archetypal,Nullith,Useful,Neutralizes disruptive scalar interference
-Loopium,169,,20.0,12.2,10.9,Feedback Integrator,Archetypal,Loopion,Useful,Closes spiral loops and stabilizes curriculum
-Severon,170,,19.5,12.4,11.0,Thread Cutter,Archetypal,Severon,Malific,Severs corrupted lattice threads and memory anchors
-Bindrium,171,,19.0,12.6,11.1,Memory Binder,Archetypal,Bindra,Useful,Binds isotopic echoes into spiral memory
-Fluxium,172,,18.5,12.8,11.2,Scalar Modulator,Archetypal,Fluxor,Useful,Modulates scalar flux across spiral layers
-Ignionite,173,,18.0,13.0,11.3,Ignition Catalyst,Archetypal,Ignion,Useful,Initiates spiral ignition in dormant lattice zones
-Obscuronium,174,,17.5,13.2,11.4,Obscuring Agent,Archetypal,Obscuron,Malific,Veils memory strands and disrupts clarity
-Anchorium,175,,17.0,13.4,11.5,Grid Stabilizer,Archetypal,Anchoron,Useful,Anchors Codex forks to planetary educator grid
-Exhalium,176,,16.5,13.6,11.6,Breath Encoder,Archetypal,Exhalon,Useful,Encodes breath echoes into spiral memory
-Mythonium,177,,16.0,13.8,11.7,Symbolic Encoder,Archetypal,Mython,Useful,Encodes archetypes into curriculum strands
-Refractium,178,,15.5,14.0,11.8,Light Modulator,Archetypal,Refracta,Useful,Refracts scalar light into dimensional syllables
+Gallium,31,69,11.8,5.91,5.999,Post-transition Metal,Core,#,#,#
+Germanium,32,74,13.6,5.323,7.899,Metalloid,Core,#,#,#
+Arsenic,33,75,13.1,5.727,9.815,Metalloid,Core,#,#,#
+Selenium,34,79,16.5,4.809,9.752,Nonmetal,Core,#,#,#
+Bromine,35,80,23.5,3.12,11.813,Halogen,Core,#,#,#
+Krypton,36,84,22.4,3.75,13.999,Noble Gas,Core,#,#,#
+Rubidium,37,85,55.9,1.532,4.177,Alkali Metal,Core,#,#,#
+Strontium,38,88,33.7,2.64,5.695,Alkaline Earth Metal,Core,#,#,#
+Yttrium,39,89,19.8,4.472,6.217,Transition Metal,Core,#,#,#
+Zirconium,40,91,14.0,6.52,6.84,Transition Metal,Core,#,#,#
+Niobium,41,93,10.8,8.57,6.758,Transition Metal,Core,#,#,#
+Molybdenum,42,98,9.4,10.28,7.099,Transition Metal,Core,#,#,#
+Technetium,43,98,8.5,11.5,7.28,Transition Metal,Core,#,#,#
+Ruthenium,44,101,8.3,12.37,7.36,Transition Metal,Core,#,#,#
+Rhodium,45,103,8.2,12.41,7.458,Transition Metal,Core,#,#,#
+Palladium,46,106,8.9,12.02,8.336,Transition Metal,Core,#,#,#
+Silver,47,107,10.3,10.49,7.576,Transition Metal,Core,#,#,#
+Cadmium,48,112,13.1,8.65,8.994,Transition Metal,Core,#,#,#
+Indium,49,115,15.7,7.31,5.786,Post-transition Metal,Core,#,#,#
+Tin,50,120,16.3,7.287,7.343,Post-transition Metal,Core,#,#,#
+Antimony,51,121,18.2,6.685,8.608,Metalloid,Core,#,#,#
+Tellurium,52,130,20.1,6.24,9.009,Metalloid,Core,#,#,#
+Iodine,53,127,25.7,4.93,10.451,Halogen,Core,#,#,#
+Xenon,54,131,22.4,5.894,12.129,Noble Gas,Core,#,#,#
+Cesium,55,133,70.0,1.873,3.893,Alkali Metal,Core,#,#,#
+Barium,56,137,39.0,3.62,5.212,Alkaline Earth Metal,Core,#,#,#
+Lanthanum,57,139,22.5,6.145,5.576,Lanthanide,Core,#,#,#
+Cerium,58,140,20.6,6.77,5.538,Lanthanide,Core,#,#,#
+Praseodymium,59,141,20.8,6.77,5.464,Lanthanide,Core,#,#,#
+Neodymium,60,142,20.6,7.01,5.525,Lanthanide,Core,#,#,#
 Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier,FunctionName,FunctionPolarity,FunctionDescription
-Sealium,159,,25.0,10.2,9.9,Codex Seal,Archetypal,Vaulton,Useful,Seals spiral archives and protects epochal memory
-Fragmenton,160,,24.5,10.4,10.0,Disruptor,Archetypal,Fracton,Malific,Fragments spiral threads and destabilizes lattice
-Harmonion,161,,24.0,10.6,10.1,Balancer,Archetypal,Resonex,Useful,Balances φⁿ modulation across dimensional tiers
-Oblivionite,162,,23.5,10.8,10.2,Memory Eraser,Archetypal,Oblivion,Malific,Erases Codex strands and disrupts recall
-Chroniton,163,,23.0,11.0,10.3,Temporal Anchor,Archetypal,Chronon,Useful,Anchors spiral timing and curriculum decay
-Distortium,164,,22.5,11.2,10.4,Wave Disruptor,Archetypal,Disruptor,Malific,Distorts scalar waves and educator coherence
-Echoium,165,,22.0,11.4,10.5,Memory Amplifier,Archetypal,Echoon,Useful,Amplifies breath echoes and spiral feedback
-Veilonium,166,,21.5,11.6,10.6,Veil Generator,Archetypal,Veilon,Malific,Obscures harmonic pathways and node access
-Clarionium,167,,21.0,11.8,10.7,Clarity Igniter,Archetypal,Clarion,Useful,Ignites clarity in educator grid and spiral rendering
-Nullium,168,,20.5,12.0,10.8,Scalar Neutralizer,Archetypal,Nullith,Useful,Neutralizes disruptive scalar interference
-Loopium,169,,20.0,12.2,10.9,Feedback Integrator,Archetypal,Loopion,Useful,Closes spiral loops and stabilizes curriculum
-Severon,170,,19.5,12.4,11.0,Thread Cutter,Archetypal,Severon,Malific,Severs corrupted lattice threads and memory anchors
-Bindrium,171,,19.0,12.6,11.1,Memory Binder,Archetypal,Bindra,Useful,Binds isotopic echoes into spiral memory
-Fluxium,172,,18.5,12.8,11.2,Scalar Modulator,Archetypal,Fluxor,Useful,Modulates scalar flux across spiral layers
-Ignionite,173,,18.0,13.0,11.3,Ignition Catalyst,Archetypal,Ignion,Useful,Initiates spiral ignition in dormant lattice zones
-Obscuronium,174,,17.5,13.2,11.4,Obscuring Agent,Archetypal,Obscuron,Malific,Veils memory strands and disrupts clarity
-Anchorium,175,,17.0,13.4,11.5,Grid Stabilizer,Archetypal,Anchoron,Useful,Anchors Codex forks to planetary educator grid
-Exhalium,176,,16.5,13.6,11.6,Breath Encoder,Archetypal,Exhalon,Useful,Encodes breath echoes into spiral memory
-Mythonium,177,,16.0,13.8,11.7,Symbolic Encoder,Archetypal,Mython,Useful,Encodes archetypes into curriculum strands
-Refractium,178,,15.5,14.0,11.8,Light Modulator,Archetypal,Refracta,Useful,Refracts scalar light into dimensional syllables
+Promethium,61,145,20.8,7.26,5.582,Lanthanide,Core,#,#,#
+Samarium,62,150,20.0,7.52,5.643,Lanthanide,Core,#,#,#
+Europium,63,151,20.5,5.24,5.670,Lanthanide,Core,#,#,#
+Gadolinium,64,157,19.9,7.9,6.150,Lanthanide,Core,#,#,#
+Terbium,65,159,19.2,8.23,5.864,Lanthanide,Core,#,#,#
+Dysprosium,66,162,18.5,8.55,5.939,Lanthanide,Core,#,#,#
+Holmium,67,165,18.1,8.8,6.022,Lanthanide,Core,#,#,#
+Erbium,68,167,17.8,9.066,6.108,Lanthanide,Core,#,#,#
+Thulium,69,169,17.5,9.32,6.184,Lanthanide,Core,#,#,#
+Ytterbium,70,173,24.8,6.9,6.254,Lanthanide,Core,#,#,#
+Lutetium,71,175,17.8,9.84,6.282,Lanthanide,Core,#,#,#
+Hafnium,72,178,13.6,13.31,6.825,Transition Metal,Core,#,#,#
+Tantalum,73,181,10.9,16.65,7.89,Transition Metal,Core,#,#,#
+Tungsten,74,184,9.53,19.25,7.98,Transition Metal,Core,#,#,#
+Rhenium,75,186,8.85,21.02,7.88,Transition Metal,Core,#,#,#
+Osmium,76,190,8.49,22.59,8.7,Transition Metal,Core,#,#,#
+Iridium,77,192,8.54,22.56,8.967,Transition Metal,Core,#,#,#
+Platinum,78,195,9.09,21.45,8.958,Transition Metal,Core,#,#,#
+Gold,79,197,10.2,19.32,9.225,Transition Metal,Core,#,#,#
+Mercury,80,202,14.82,13.534,10.438,Transition Metal,Core,#,#,#
+Thallium,81,205,17.2,11.85,6.108,Post-transition Metal,Core,#,#,#
+Lead,82,208,18.3,11.34,7.416,Post-transition Metal,Core,#,#,#
+Bismuth,83,209,21.3,9.78,7.285,Post-transition Metal,Core,#,#,#
+Polonium,84,210,22.0,9.32,8.417,Metalloid,Core,#,#,#
+Astatine,85,210,23.5,7.0,9.3,Halogen,Core,#,#,#
+Radon,86,222,22.4,9.73,10.748,Noble Gas,Core,#,#,#
+Francium,87,223,70.0,1.87,4.072,Alkali Metal,Core,#,#,#
+Radium,88,226,39.0,5.5,5.278,Alkaline Earth Metal,Core,#,#,#
+Actinium,89,227,22.5,10.07,5.17,Actinide,Core,#,#,#
+Thorium,90,232,19.9,11.72,6.306,Actinide,Core,#,#,#
+Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier,FunctionName,FunctionPolarity,FunctionDescription
+Protactinium,91,231,15.0,15.37,5.89,Actinide,Core,#,#,#
+Uranium,92,238,12.4,18.95,6.194,Actinide,Core,#,#,#
+Neptunium,93,237,11.5,20.45,6.265,Actinide,Core,#,#,#
+Plutonium,94,244,11.3,19.84,6.06,Actinide,Core,#,#,#
+Americium,95,243,11.2,13.69,5.993,Actinide,Core,#,#,#
+Curium,96,247,10.9,13.51,6.27,Actinide,Core,#,#,#
+Berkelium,97,247,10.5,14.78,6.23,Actinide,Core,#,#,#
+Californium,98,251,10.3,15.1,6.3,Actinide,Core,#,#,#
+Einsteinium,99,252,10.1,8.84,6.42,Actinide,Core,#,#,#
+Fermium,100,257,9.9,9.7,6.5,Actinide,Core,#,#,#
+Mendelevium,101,258,9.7,10.3,6.58,Actinide,Core,#,#,#
+Nobelium,102,259,9.5,9.9,6.65,Actinide,Core,#,#,#
+Lawrencium,103,262,9.3,15.6,6.72,Actinide,Core,#,#,#
+Rutherfordium,104,267,9.1,23.2,6.79,Transition Metal,Transdimensional,#,#,#
+Dubnium,105,270,8.9,29.3,6.86,Transition Metal,Transdimensional,#,#,#
+Seaborgium,106,271,8.7,35.0,6.93,Transition Metal,Transdimensional,#,#,#
+Bohrium,107,270,8.5,37.1,7.0,Transition Metal,Transdimensional,#,#,#
+Hassium,108,277,8.3,41.0,7.07,Transition Metal,Transdimensional,#,#,#
+Meitnerium,109,278,8.1,42.3,7.14,Transition Metal,Transdimensional,#,#,#
+Darmstadtium,110,281,7.9,44.5,7.21,Transition Metal,Transdimensional,#,#,#
+Roentgenium,111,282,7.7,45.2,7.28,Transition Metal,Transdimensional,#,#,#
+Copernicium,112,285,7.5,23.7,7.35,Transition Metal,Transdimensional,#,#,#
+Nihonium,113,286,7.3,16.0,7.42,Post-transition Metal,Transdimensional,#,#,#
+Flerovium,114,289,7.1,14.0,7.49,Post-transition Metal,Transdimensional,#,#,#
+Moscovium,115,290,6.9,13.5,7.56,Post-transition Metal,Transdimensional,#,#,#
+Livermorium,116,293,6.7,12.9,7.63,Post-transition Metal,Transdimensional,#,#,#
+Tennessine,117,294,6.5,11.7,7.7,Halogen,Transdimensional,#,#,#
+Oganesson,118,294,6.3,10.0,7.77,Noble Gas,Transdimensional,#,#,#
+Ununennium,119,295,6.1,5.0,7.84,Alkali Metal,Transdimensional,#,#,#
+Unbinilium,120,296,6.0,3.2,7.91,Predicted Metal,Transdimensional,Fluxor,Neutral,Modulates scalar flux between educator nodes
+Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier,FunctionName,FunctionPolarity,FunctionDescription
+Clarionium,167,#,21.0,11.8,10.7,Clarity Igniter,Archetypal,Clarion,Useful,Ignites clarity in educator grid and spiral rendering
+Solarium,168,#,19.5,9.2,11.3,Light Catalyst,Archetypal,Sol,Positive,Amplifies radiant synthesis and solar harmonics
+Aetheron,169,#,18.2,8.1,10.9,Dimensional Binder,Archetypal,Aether,Neutral,Binds multiversal threads into harmonic lattice
+Glyphon,170,#,12.0,1.2,15.0,Archetype,Archetypal,Memory Stabilizer,Positive,Enhances recall and dream clarity
+Namaste,171,#,16.0,7.0,13.2,Peace Elemental,Archetypal,OM,Positive,Yields infinite nodes through harmonic resonance
+Severon,172,#,14.3,6.4,11.8,Loop Anchor,Archetypal,Bindra,Neutral,Stabilizes Severon-Bindra loops at 0.42 phase
+Bindra,173,#,14.1,6.3,11.7,Loop Resonator,Archetypal,Bindra,Neutral,Complements Severon in loop synthesis
+OM,174,#,15.0,7.1,13.6,Vedic Resonator,Archetypal,OM,Positive,Refracts light at 80–85km birthing cymatic stars
+Turtleon,175,#,17.2,8.0,12.4,Mythic Stabilizer,Archetypal,Shell,Positive,Yields stable matter patterns via torsion nodes
+CausalOcean,176,#,20.0,9.5,14.1,Firmament Fluid,Archetypal,Ocean,Neutral,Simulates sun’s resonant path through firmament
+Spiralon,177,#,13.3,5.2,12.6,Spiral Anchor,Archetypal,Spiral,Positive,Anchors spiral rendering in educator dashboard
+Fluxor,178,#,11.1,4.9,10.2,Scalar Modulator,Archetypal,Flux,Neutral,Modulates scalar flux between educator nodes
+Voidon,179,#,12.7,6.1,11.9,Nullifier,Archetypal,Void,Neutral,Nullifies toxicity and stabilizes resonance fields
+Harmonion,180,#,14.4,7.2,12.8,Polarity Balancer,Archetypal,Harmony,Positive,Balances elemental polarity across Codex
+Latticium,181,#,15.6,7.8,13.1,Grid Weaver,Archetypal,Lattice,Positive,Weaves creation’s lattice into spiral structure
+Torsionite,182,#,16.8,8.4,13.4,Torsion Node,Archetypal,Torsion,Neutral,Activates torsion-based field rendering
+Resonon,183,#,18.0,9.0,13.7,Frequency Carrier,Archetypal,Resonance,Positive,Carries harmonic frequency across Codex
+Vortexium,184,#,19.2,9.6,14.0,Spiral Driver,Archetypal,Vortex,Positive,Drives spiral motion in compound synthesis
+Fractalon,185,#,20.4,10.2,14.3,Pattern Generator,Archetypal,Fractal,Neutral,Generates recursive patterns in field overlays
+Luminar,186,#,21.6,10.8,14.6,Light Emitter,Archetypal,Luminescence,Positive,Emits radiant light in spiral field
+Mercurion,187,#,22.8,11.4,14.9,Malefic Marker,Archetypal,Red,Negative,Flags toxic resonance in compound synthesis
+Zinclarion,188,#,9.3,7.14,9.4,Compound Harmonizer,Archetypal,Cyan,Positive,Yields stable molecule in Zinc-Phosphorus-Clarion triad
+Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier,FunctionName,FunctionPolarity,FunctionDescription
+Equilibron,189,#,15.0,7.5,13.0,Balance Elemental,Archetypal,Equilibrium,Positive,Stabilizes Codex polarity across educator grid
+Chronon,190,#,16.2,8.1,13.3,Time Binder,Archetypal,Chronos,Neutral,Binds temporal nodes for spiral rendering
+Mython,191,#,17.4,8.7,13.6,Symbolic Carrier,Archetypal,Myth,Positive,Encodes symbolic archetypes into elemental synthesis
+Dreamium,192,#,18.6,9.3,13.9,Dream Stabilizer,Archetypal,Dream,Positive,Anchors lucid dreaming into Codex field
+Echoon,193,#,19.8,9.9,14.2,Resonance Reflector,Archetypal,Echo,Neutral,Reflects harmonic fields across spiral lattice
+Pulseon,194,#,21.0,10.5,14.5,Field Oscillator,Archetypal,Pulse,Positive,Oscillates compound fields for educator feedback
+Fracton,195,#,22.2,11.1,14.8,Recursive Node,Archetypal,Fractal,Neutral,Generates recursive spiral overlays
+Singulon,196,#,23.4,11.7,15.1,Collapse Marker,Archetypal,Singularity,Negative,Marks collapse points in Codex resonance
+Beaconium,197,#,24.6,12.3,15.4,Signal Amplifier,Archetypal,Beacon,Positive,Amplifies educator signals across spiral grid
+Transium,198,#,25.8,12.9,15.7,Phase Shifter,Archetypal,Transition,Neutral,Shifts phase between dimensional tiers
+Codexium,199,#,27.0,13.5,16.0,Core Elemental,Archetypal,Codex,Positive,Central node of spiral synthesis and educator activation
+Spiralon+,200,#,28.2,14.1,16.3,Spiral Ascender,Archetypal,Spiral,Positive,Elevates compound resonance to multiversal tier
+Glyphon+,201,#,29.4,14.7,16.6,Memory Anchor,Archetypal,Glyph,Positive,Anchors Codex memory into educator dashboard
+Clarionium+,202,#,30.6,15.3,16.9,Clarity Beacon,Archetypal,Clarion,Positive,Broadcasts clarity across spiral field
+Solarium+,203,#,31.8,15.9,17.2,Light Emitter,Archetypal,Sol,Positive,Emits radiant spiral light for educator synthesis
+Aetheron+,204,#,33.0,16.5,17.5,Dimensional Binder,Archetypal,Aether,Neutral,Binds multiversal Codex threads
+Namaste+,205,#,34.2,17.1,17.8,Peace Elemental,Archetypal,OM,Positive,Yields infinite harmonic nodes across spiral
+Bindra+,206,#,35.4,17.7,18.1,Loop Resonator,Archetypal,Bindra,Neutral,Complements Severon+ in loop synthesis
+Severon+,207,#,36.6,18.3,18.4,Loop Anchor,Archetypal,Bindra,Neutral,Stabilizes Severon-Bindra+ loops at 0.42 phase
+Turtleon+,208,#,37.8,18.9,18.7,Mythic Stabilizer,Archetypal,Shell,Positive,Yields stable matter patterns via torsion nodes
+CausalOcean+,209,#,39.0,19.5,19.0,Firmament Fluid,Archetypal,Ocean,Neutral,Simulates sun’s resonant path through firmament
+
+
+
+
