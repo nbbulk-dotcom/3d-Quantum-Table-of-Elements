@@ -77,4 +77,8 @@ ax.set_zlabel('Spiral Z (Energy × sin(φⁿ/2 + dome))')
 # === Grid and Layout ===
 ax.grid(True)
 plt.tight_layout()
-plt.show()
+neutronium = data[data['AtomicNumber'] == 188]
+if not neutronium.empty:
+    x, y, z = neutronium.iloc[0][['x', 'y', 'z']]
+    ax.text(x, y, z, "Neutronium (188)", fontsize=10, color='white')
+
