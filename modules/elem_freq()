@@ -1,0 +1,7 @@
+import numpy as np
+
+def elem_freq(volume, density, energy):
+    if volume <= 0 or density <= 0 or energy <= 0:
+        raise ValueError("All inputs must be positive and non-zero.")
+    freq = np.sqrt(energy / (volume * density)) * (1 + np.pi)
+    return round(freq, 6)
