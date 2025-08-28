@@ -57,20 +57,12 @@
       updatePairings();
     }
 
-    function updatePairings() {
-      const selectedA = document.getElementById("elementA").value;
-      const base = elements.find(e => e.Element === selectedA);
-      if (!base) return;
-      const baseFreq = elemFreq(base.Volume, base.Density, base.Energy);
-      const pairings = elements.filter(e => {
-        const freqMatch = Math.abs(elemFreq(e.Volume, e.Density, e.Energy) - baseFreq) < 0.5;
-        const polaritySafe = !e.FunctionPolarity || e.FunctionPolarity === "Useful";
-        return freqMatch && polaritySafe;
-      });
-      const selectB = document.getElementById("elementB");
-      selectB.innerHTML = pairings.map(e => `<option>${e.Element}</option>`).join('');
-      updateRefinements();
-    }
+function updatePairings() {
+  const selectB = document.getElementById("elementB");
+  selectB.innerHTML = elements.map(e => `<option>${e.Element}</option>`).join('');
+  updateRefinements();
+}
+
 
     function updateRefinements() {
       const refinements = elements.filter(e => !e.FunctionPolarity || e.FunctionPolarity === "Useful");
