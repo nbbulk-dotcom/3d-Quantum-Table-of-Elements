@@ -1,21 +1,195 @@
 Element,AtomicNumber,Volume,Density,Energy,Family,Toxicity
 Hydrogen,1,14.1,0.0899,13.6,Nonmetal,1
 Helium,2,22.4,0.1786,24.6,Noble Gas,0
-Carbon,6,5.3,2.267,11.26,Nonmetal,1
-Nitrogen,7,17.3,1.2506,14.53,Nonmetal,1
+Lithium,3,13.1,0.534,5.39,Alkali Metal,2
+Beryllium,4,5.0,1.85,9.32,Alkaline Earth,3
+Boron,5,4.6,2.34,8.3,Metalloid,2
+Carbon,6,5.3,2.26,11.26,Nonmetal,1
+Nitrogen,7,17.3,1.251,14.53,Nonmetal,1
 Oxygen,8,14.0,1.429,13.62,Nonmetal,1
-Sodium,11,23.7,0.968,5.14,Alkali Metal,3
-Magnesium,12,13.9,1.738,7.64,Alkaline Earth Metal,1
+Fluorine,9,11.0,1.696,17.42,Halogen,2
+Neon,10,16.5,0.9002,21.56,Noble Gas,0
+Sodium,11,23.7,0.968,5.14,Alkali Metal,2
+Magnesium,12,13.9,1.738,7.64,Alkaline Earth,1
+Aluminum,13,10.0,2.7,5.99,Post-transition,2
+Silicon,14,12.1,2.33,8.15,Metalloid,2
 Phosphorus,15,17.0,1.82,10.49,Nonmetal,2
 Sulfur,16,15.5,2.07,10.36,Nonmetal,2
-Iron,26,7.1,7.874,7.87,Transition Metal,3
-Zinc,30,9.3,7.14,9.4,Transition Metal,1
-Arsenic,33,13.1,5.73,9.79,Metalloid,8
-Selenium,34,12.0,4.81,9.75,Nonmetal,2
-Technetium,43,8.5,11.5,7.28,Transition Metal,9
+Chlorine,17,9.2,3.214,12.97,Halogen,3
+Argon,18,22.4,1.784,15.76,Noble Gas,0
+Potassium,19,45.0,0.862,4.34,Alkali Metal,3
+Calcium,20,29.9,1.55,6.11,Alkaline Earth,2
+Element,AtomicNumber,Volume,Density,Energy,Family,Toxicity
+Hydrogen,1,14.1,0.0899,13.6,Nonmetal,1
+Helium,2,22.4,0.1786,24.6,Noble Gas,0
+Lithium,3,13.1,0.534,5.39,Alkali Metal,2
+Beryllium,4,5.0,1.85,9.32,Alkaline Earth,3
+Boron,5,4.6,2.34,8.3,Metalloid,2
+Carbon,6,5.3,2.26,11.26,Nonmetal,1
+Nitrogen,7,17.3,1.251,14.53,Nonmetal,1
+Oxygen,8,14.0,1.429,13.62,Nonmetal,1
+Fluorine,9,11.0,1.696,17.42,Halogen,2
+Neon,10,16.5,0.9002,21.56,Noble Gas,0
+Sodium,11,23.7,0.968,5.14,Alkali Metal,2
+Magnesium,12,13.9,1.738,7.64,Alkaline Earth,1
+Aluminum,13,10.0,2.7,5.99,Post-transition,2
+Silicon,14,12.1,2.33,8.15,Metalloid,2
+Phosphorus,15,17.0,1.82,10.49,Nonmetal,2
+Sulfur,16,15.5,2.07,10.36,Nonmetal,2
+Chlorine,17,9.2,3.214,12.97,Halogen,3
+Argon,18,22.4,1.784,15.76,Noble Gas,0
+Potassium,19,45.0,0.862,4.34,Alkali Metal,3
+Calcium,20,29.9,1.55,6.11,Alkaline Earth,2
+Niobium,41,10.3,8.57,6.76,Transition Metal,2
+Molybdenum,42,9.4,10.28,7.1,Transition Metal,2
+Technetium,43,8.5,11.5,7.28,Transition Metal,4
+Ruthenium,44,8.3,12.37,7.36,Transition Metal,3
+Rhodium,45,8.2,12.41,7.46,Transition Metal,3
+Palladium,46,8.9,12.02,8.34,Transition Metal,2
 Silver,47,10.3,10.49,7.58,Transition Metal,2
-Cadmium,48,13.0,8.65,8.99,Transition Metal,7
+Cadmium,48,13.0,8.65,8.99,Transition Metal,3
+Indium,49,15.7,7.31,5.79,Post-transition,2
+Tin,50,16.3,7.31,7.34,Post-transition,2
+Antimony,51,18.2,6.697,8.64,Metalloid,3
+Tellurium,52,20.5,6.24,9.01,Metalloid,3
+Iodine,53,25.7,4.93,10.45,Halogen,3
+Xenon,54,22.4,5.894,12.13,Noble Gas,0
+Cesium,55,70.0,1.873,3.89,Alkali Metal,3
+Barium,56,39.0,3.62,5.21,Alkaline Earth,2
+Lanthanum,57,22.5,6.145,5.58,Lanthanide,2
+Cerium,58,20.7,6.77,5.54,Lanthanide,2
+Praseodymium,59,20.8,6.77,5.47,Lanthanide,2
+Neodymium,60,20.6,7.01,5.53,Lanthanide,2
+Samarium,61,20.5,7.52,5.64,Lanthanide,2
+Europium,62,28.9,5.24,5.67,Lanthanide,2
+Gadolinium,63,19.9,7.9,6.15,Lanthanide,2
+Terbium,64,19.2,8.23,5.86,Lanthanide,2
+Dysprosium,65,18.5,8.55,5.94,Lanthanide,2
+Holmium,66,18.1,8.8,6.02,Lanthanide,2
+Erbium,67,17.8,9.07,6.11,Lanthanide,2
+Thulium,68,17.5,9.32,6.18,Lanthanide,2
+Ytterbium,69,24.8,6.9,6.25,Lanthanide,2
+Lutetium,70,17.2,9.84,5.43,Lanthanide,2
+Hafnium,72,13.6,13.31,6.83,Transition Metal,3
+Tantalum,73,10.9,16.65,7.89,Transition Metal,3
+Tungsten,74,9.5,19.25,7.98,Transition Metal,3
+Rhenium,75,8.9,21.02,7.88,Transition Metal,4
+Osmium,76,8.4,22.59,8.7,Transition Metal,4
+Iridium,77,8.2,22.56,8.97,Transition Metal,4
+Platinum,78,9.1,21.45,9.0,Transition Metal,3
+Gold,79,10.2,19.32,9.23,Transition Metal,2
 Mercury,80,14.8,13.55,10.44,Transition Metal,9
-Lead,82,18.3,11.35,7.42,Post-transition Metal,9
+Thallium,81,18.1,11.85,6.11,Post-transition,4
+Lead,82,18.3,11.35,7.42,Post-transition,9
+Bismuth,83,21.3,9.78,7.29,Post-transition,3
+Polonium,84,22.0,9.32,8.42,Post-transition,5
+Astatine,85,23.5,7.0,9.3,Halogen,5
+Radon,86,22.4,9.73,10.74,Noble Gas,1
+Francium,87,70.0,1.87,3.9,Alkali Metal,4
+Radium,88,39.0,5.5,5.28,Alkaline Earth,4
+Actinium,89,22.5,10.07,5.17,Actinide,4
+Thorium,90,19.9,11.72,6.31,Actinide,4
+Protactinium,91,15.0,15.37,5.89,Actinide,5
 Uranium,92,12.0,18.95,6.51,Actinide,8
-Oganesson,118,23.0,5.0,5.0,Noble Gas,6
+Neptunium,93,11.5,20.45,6.2,Actinide,8
+Plutonium,94,11.3,19.84,6.06,Actinide,9
+Americium,95,11.1,13.67,5.99,Actinide,7
+Curium,96,10.9,13.51,5.99,Actinide,7
+Berkelium,97,10.7,14.78,6.23,Actinide,7
+Californium,98,10.5,15.1,6.3,Actinide,7
+Einsteinium,99,10.3,8.84,6.42,Actinide,6
+Fermium,100,10.1,9.7,6.5,Actinide,6
+Mendelevium,101,9.9,10.3,6.58,Actinide,6
+Nobelium,102,9.7,9.9,6.65,Actinide,6
+Lawrencium,103,9.5,15.6,6.8,Actinide,6
+Rutherfordium,104,9.3,23.2,6.9,Transition Metal,5
+Dubnium,105,9.1,29.3,7.0,Transition Metal,5
+Seaborgium,106,8.9,35.0,7.1,Transition Metal,5
+Bohrium,107,8.7,37.1,7.2,Transition Metal,5
+Hassium,108,8.5,41.0,7.3,Transition Metal,5
+Meitnerium,109,8.3,43.5,7.4,Transition Metal,5
+Darmstadtium,110,8.1,47.0,7.5,Transition Metal,5
+Roentgenium,111,7.9,51.0,7.6,Transition Metal,5
+Copernicium,112,7.7,55.0,7.7,Transition Metal,5
+Nihonium,113,7.5,58.0,7.8,Post-transition,5
+Flerovium,114,7.3,61.0,7.9,Post-transition,5
+Moscovium,115,7.1,64.0,8.0,Post-transition,5
+Livermorium,116,6.9,67.0,8.1,Post-transition,5
+Tennessine,117,6.7,70.0,8.2,Halogen,5
+Oganesson,118,6.5,73.0,8.3,Noble Gas,5
+Clarion,136,11.2,6.1,9.1,Archetype,0
+Vaulton,137,10.5,5.9,8.8,Archetype,0
+Bindra,138,12.3,6.4,9.3,Archetype,0
+Loopion,139,13.1,6.8,9.7,Archetype,0
+Neutronium,188,0.0,0.0,0.0,Anchor,0
+Element,AtomicNumber,Volume,Density,Energy,Family,Toxicity
+Solarium,119,10.9,5.2,8.9,Archetype,0
+Lunium,120,11.3,5.4,9.2,Archetype,0
+Aetheron,121,12.1,5.6,9.4,Glyph,0
+Chronium,122,13.0,5.8,9.6,Glyph,0
+Mython,123,13.4,6.0,9.8,Glyph,0
+Ecliptium,124,14.2,6.2,10.0,Archetype,0
+Vibrion,125,14.6,6.4,10.2,Nullifier,0
+Oscillon,126,15.0,6.6,10.4,Nullifier,0
+Fracton,127,15.4,6.8,10.6,Nullifier,0
+Spiralon,128,15.8,7.0,10.8,Glyph,0
+Quintium,129,16.2,7.2,11.0,Glyph,0
+Hexon,130,16.6,7.4,11.2,Glyph,0
+Septium,131,17.0,7.6,11.4,Glyph,0
+Octalon,132,17.4,7.8,11.6,Glyph,0
+Novion,133,17.8,8.0,11.8,Glyph,0
+Decaton,134,18.2,8.2,12.0,Glyph,0
+Clarion,136,11.2,6.1,9.1,Archetype,0
+Vaulton,137,10.5,5.9,8.8,Archetype,0
+Bindra,138,12.3,6.4,9.3,Archetype,0
+Element,AtomicNumber,Volume,Density,Energy,Family,Toxicity
+Fluxium,140,18.6,8.4,12.2,Glyph,0
+Nexon,141,19.0,8.6,12.4,Glyph,0
+Vorticon,142,19.4,8.8,12.6,Glyph,0
+Singulon,143,19.8,9.0,12.8,Glyph,0
+Echoium,144,20.2,9.2,13.0,Glyph,0
+Pulseon,145,20.6,9.4,13.2,Glyph,0
+Phaseon,146,21.0,9.6,13.4,Glyph,0
+Tachyon,147,21.4,9.8,13.6,Glyph,0
+Gravion,148,21.8,10.0,13.8,Glyph,0
+Dimensium,149,22.2,10.2,14.0,Glyph,0
+Omnion,150,22.6,10.4,14.2,Glyph,0
+Zerion,151,23.0,10.6,14.4,Glyph,0
+Harmonion,152,23.4,10.8,14.6,Nullifier,0
+Stabilon,153,23.8,11.0,14.8,Nullifier,0
+Shieldron,154,24.2,11.2,15.0,Nullifier,0
+Breathon,155,24.6,11.4,15.2,Nullifier,0
+Latticium,156,25.0,11.6,15.4,Nullifier,0
+Anchoron,157,25.4,11.8,15.6,Nullifier,0
+Codexium,158,25.8,12.0,15.8,Glyph,0
+Ascendron,159,26.2,12.2,16.0,Glyph,0
+Element,AtomicNumber,Volume,Density,Energy,Family,Toxicity
+Elevatron,160,26.6,12.4,16.2,Glyph,0
+Transcendron,161,27.0,12.6,16.4,Glyph,0
+Equilibrion,162,27.4,12.8,16.6,Glyph,0
+Reflectron,163,27.8,13.0,16.8,Glyph,0
+Infiniton,164,28.2,13.2,17.0,Glyph,0
+Originon,165,28.6,13.4,17.2,Glyph,0
+Mycelon,166,29.0,13.6,17.4,Nullifier,0
+Spacium,167,29.4,13.8,17.6,Nullifier,0
+Timion,168,29.8,14.0,17.8,Nullifier,0
+Breathium,169,30.2,14.2,18.0,Nullifier,0
+Shieldium,170,30.6,14.4,18.2,Nullifier,0
+Harmonium,171,31.0,14.6,18.4,Nullifier,0
+Codexon,172,31.4,14.8,18.6,Glyph,0
+Ascendium,173,31.8,15.0,18.8,Glyph,0
+Pulseium,174,32.2,15.2,19.0,Glyph,0
+Spiralon,175,32.6,15.4,19.2,Glyph,0
+Nullon,176,33.0,15.6,19.4,Nullifier,0
+Anchorium,177,33.4,15.8,19.6,Nullifier,0
+Stellaron,178,33.8,16.0,19.8,Glyph,0
+Voidium,179,34.2,16.2,20.0,Glyph,0
+Echoon,180,34.6,16.4,20.2,Glyph,0
+Fractium,181,35.0,16.6,20.4,Glyph,0
+Luminon,182,35.4,16.8,20.6,Glyph,0
+Resonon,183,35.8,17.0,20.8,Glyph,0
+Synthion,184,36.2,17.2,21.0,Glyph,0
+Glyphon,185,36.6,17.4,21.2,Glyph,0
+Omnion+,186,37.0,17.6,21.4,Glyph,0
+Codex+,187,37.4,17.8,21.6,Glyph,0
+Neutronium,188,0.0,0.0,0.0,Anchor,0
