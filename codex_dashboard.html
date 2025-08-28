@@ -121,19 +121,18 @@
       `;
       document.getElementById("codexWarning").innerText = warningText;
 
-      // Spiral glyph overlay
-      const glyphAB = generateCouplingGraph(A, B);
-      const glyphBC = generateCouplingGraph(B, C);
-      const glyphAC = generateCouplingGraph(A, C);
+      const glyphs = [
+        generateCouplingGraph(A, B),
+        generateCouplingGraph(B, C),
+        generateCouplingGraph(A, C)
+      ];
+
       document.getElementById("glyphOverlay").innerHTML = `
         <ul>
-          <li>${glyphAB.ElementA} ↔ ${glyphAB.ElementB}: ΔFreq ${glyphAB.ΔFreq}, Polarity ${glyphAB.Polarity}</li>
-          <li>${glyphBC.ElementA} ↔ ${glyphBC.ElementB}: ΔFreq ${glyphBC.ΔFreq}, Polarity ${glyphBC.Polarity}</li>
-          <li>${glyphAC.ElementA} ↔ ${glyphAC.ElementB}: ΔFreq ${glyphAC.ΔFreq}, Polarity ${glyphAC.Polarity}</li>
+          ${glyphs.map(g => `<li>${g.ElementA} ↔ ${g.ElementB}: ΔFreq ${g.ΔFreq}, Polarity ${g.Polarity}</li>`).join('')}
         </ul>
       `;
 
-      // Nullification suggestions
       const nullifiers = toxicityNullify(compound);
       document.getElementById("nullifyOutput").innerHTML = nullifiers.length > 0
         ? `<ul>${nullifiers.map(n => `<li>${n.Element}</li>`).join('')}</ul>`
@@ -199,15 +198,36 @@
       return nullifiers.slice(0, 3);
     }
 
+    function loadElementsFromCSV() {
+      fetch('https://raw.githubusercontent.com/nbbulk-dotcom/3d-Quantum-Table-of-Elements/main/data/elements.csv')
+        .then(response => response.text())
+        .then(data => {
+          const lines = data.trim().split('\n').slice(1);
+          elements = lines.map(line => {
+            const [Element, AtomicNumber, Volume, Density, Energy, Family, Toxicity] = line.split(',');
+            return {
+              Element,
+              AtomicNumber: +AtomicNumber,
+              Volume: +Volume,
+              Density: +Density,
+              Energy: +Energy,
+              Toxicity: +Toxicity
+            };
+          });
+
+          const selectA = document.getElementById("elementA");
+          const selectB = document.getElementById("elementB");
+          const selectC = document.getElementById("elementC");
+          const options = elements.map(e => `<option value="${e.Element}">${e.Element}</option>`).join('');
+          selectA.innerHTML = options;
+          selectB.innerHTML = options;
+          selectC.innerHTML = options;
+          synthesizeCompound();
+        });
+    }
+
     window.onload = function() {
-      const selectA = document.getElementById("elementA");
-      const selectB = document.getElementById("elementB");
-      const selectC = document.getElementById("elementC");
-      const options = elements.map(e => `<option value="${e.Element}">${e.Element}</option>`).join('');
-      selectA.innerHTML = options;
-      selectB.innerHTML = options;
-      selectC.innerHTML = options;
-      synthesizeCompound();
+      loadElementsFromCSV();
     };
   </script>
 
