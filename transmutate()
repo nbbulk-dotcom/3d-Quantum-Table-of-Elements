@@ -1,0 +1,27 @@
+// === transmutate.js ===
+// Codex module for pairing malefic elements with neutral/useful stabilizers
+
+function transmutate(element) {
+  const phi = 1.618;
+  const baseFreq = elemFreq(element.Volume, element.Density, element.Energy);
+
+  // Filter for stabilizers
+  const candidates = elements.filter(e => {
+    const freq = elemFreq(e.Volume, e.Density, e.Energy);
+    const delta = Math.abs(freq - baseFreq);
+    return (
+      e.Toxicity <= 3 &&
+      delta < 1.0 &&
+      e.Element !== element.Element
+    );
+  });
+
+  // Sort by harmonic proximity
+  candidates.sort((a, b) => {
+    const fa = elemFreq(a.Volume, a.Density, a.Energy);
+    const fb = elemFreq(b.Volume, b.Density, b.Energy);
+    return Math.abs(fa - baseFreq) - Math.abs(fb - baseFreq);
+  });
+
+  return candidates.slice(0, 5); // Return top 5 stabilizers
+}
