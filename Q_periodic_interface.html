@@ -9,7 +9,6 @@
     select, button { padding: 8px; margin: 10px; background-color: #222; color: #eee; border: 1px solid #555; }
     .panel { margin-bottom: 20px; padding: 10px; border: 1px solid #333; background-color: #1a1a1a; }
     .summary { background-color: #222; padding: 10px; border: 1px solid #444; }
-    .glyph { font-size: 24px; margin-right: 10px; }
     .output { margin-top: 10px; padding: 10px; background-color: #222; border: 1px solid #444; }
     .warning { color: #ff4444; font-weight: bold; }
   </style>
@@ -17,8 +16,6 @@
 <body>
 
   <h1>🌀 Codex Quantum Periodic Interface</h1>
-<button onclick="window.open('render_element_field.py')">🔬 View Element Field Render</button>
-<button onclick="window.open('render_final_compound.py')">🌌 View Final Material Field</button>
 
   <div class="panel">
     <h2>🧩 Step 1: Select Element A</h2>
@@ -135,7 +132,11 @@
     }
 
     function viewFieldRender() {
-      alert("🔬 Rendering elemental field... [This would open a 3D spiral visualization module]");
+      window.open("element_field_app.html", "_blank");
     }
 
-    function viewFinal
+    function viewFinalField() {
+      window.open("compound_field_app.html", "_blank");
+    }
+
+    window.onload = ()
