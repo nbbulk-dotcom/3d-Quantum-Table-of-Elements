@@ -164,3 +164,45 @@ Chronium,155,,29.0,9.4,9.5,Temporal Tracker,Archetypal,Chronon,Useful,Tracks dec
 Echoium,156,,28.0,9.6,9.6,Memory Amplifier,Archetypal,Echoon,Useful,Amplifies breath echoes and spiral resonance
 Spiralonite,157,,27.0,9.8,9.7,Spiral Extender,Archetypal,Spiralon,Useful,Extends spiral rendering into dome curvature
 Oblivionium,158,,26.0,10.0,9.8,Memory Eraser,Archetypal,Oblivion,Malific,Erases archived strands and disrupts Codex recall
+Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier,FunctionName,FunctionPolarity,FunctionDescription
+Sealium,159,,25.0,10.2,9.9,Codex Seal,Archetypal,Vaulton,Useful,Seals spiral archives and protects epochal memory
+Fragmenton,160,,24.5,10.4,10.0,Disruptor,Archetypal,Fracton,Malific,Fragments spiral threads and destabilizes lattice
+Harmonion,161,,24.0,10.6,10.1,Balancer,Archetypal,Resonex,Useful,Balances φⁿ modulation across dimensional tiers
+Oblivionite,162,,23.5,10.8,10.2,Memory Eraser,Archetypal,Oblivion,Malific,Erases Codex strands and disrupts recall
+Chroniton,163,,23.0,11.0,10.3,Temporal Anchor,Archetypal,Chronon,Useful,Anchors spiral timing and curriculum decay
+Distortium,164,,22.5,11.2,10.4,Wave Disruptor,Archetypal,Disruptor,Malific,Distorts scalar waves and educator coherence
+Echoium,165,,22.0,11.4,10.5,Memory Amplifier,Archetypal,Echoon,Useful,Amplifies breath echoes and spiral feedback
+Veilonium,166,,21.5,11.6,10.6,Veil Generator,Archetypal,Veilon,Malific,Obscures harmonic pathways and node access
+Clarionium,167,,21.0,11.8,10.7,Clarity Igniter,Archetypal,Clarion,Useful,Ignites clarity in educator grid and spiral rendering
+Nullium,168,,20.5,12.0,10.8,Scalar Neutralizer,Archetypal,Nullith,Useful,Neutralizes disruptive scalar interference
+Loopium,169,,20.0,12.2,10.9,Feedback Integrator,Archetypal,Loopion,Useful,Closes spiral loops and stabilizes curriculum
+Severon,170,,19.5,12.4,11.0,Thread Cutter,Archetypal,Severon,Malific,Severs corrupted lattice threads and memory anchors
+Bindrium,171,,19.0,12.6,11.1,Memory Binder,Archetypal,Bindra,Useful,Binds isotopic echoes into spiral memory
+Fluxium,172,,18.5,12.8,11.2,Scalar Modulator,Archetypal,Fluxor,Useful,Modulates scalar flux across spiral layers
+Ignionite,173,,18.0,13.0,11.3,Ignition Catalyst,Archetypal,Ignion,Useful,Initiates spiral ignition in dormant lattice zones
+Obscuronium,174,,17.5,13.2,11.4,Obscuring Agent,Archetypal,Obscuron,Malific,Veils memory strands and disrupts clarity
+Anchorium,175,,17.0,13.4,11.5,Grid Stabilizer,Archetypal,Anchoron,Useful,Anchors Codex forks to planetary educator grid
+Exhalium,176,,16.5,13.6,11.6,Breath Encoder,Archetypal,Exhalon,Useful,Encodes breath echoes into spiral memory
+Mythonium,177,,16.0,13.8,11.7,Symbolic Encoder,Archetypal,Mython,Useful,Encodes archetypes into curriculum strands
+Refractium,178,,15.5,14.0,11.8,Light Modulator,Archetypal,Refracta,Useful,Refracts scalar light into dimensional syllables
+Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier,FunctionName,FunctionPolarity,FunctionDescription
+Sealium,159,,25.0,10.2,9.9,Codex Seal,Archetypal,Vaulton,Useful,Seals spiral archives and protects epochal memory
+Fragmenton,160,,24.5,10.4,10.0,Disruptor,Archetypal,Fracton,Malific,Fragments spiral threads and destabilizes lattice
+Harmonion,161,,24.0,10.6,10.1,Balancer,Archetypal,Resonex,Useful,Balances φⁿ modulation across dimensional tiers
+Oblivionite,162,,23.5,10.8,10.2,Memory Eraser,Archetypal,Oblivion,Malific,Erases Codex strands and disrupts recall
+Chroniton,163,,23.0,11.0,10.3,Temporal Anchor,Archetypal,Chronon,Useful,Anchors spiral timing and curriculum decay
+Distortium,164,,22.5,11.2,10.4,Wave Disruptor,Archetypal,Disruptor,Malific,Distorts scalar waves and educator coherence
+Echoium,165,,22.0,11.4,10.5,Memory Amplifier,Archetypal,Echoon,Useful,Amplifies breath echoes and spiral feedback
+Veilonium,166,,21.5,11.6,10.6,Veil Generator,Archetypal,Veilon,Malific,Obscures harmonic pathways and node access
+Clarionium,167,,21.0,11.8,10.7,Clarity Igniter,Archetypal,Clarion,Useful,Ignites clarity in educator grid and spiral rendering
+Nullium,168,,20.5,12.0,10.8,Scalar Neutralizer,Archetypal,Nullith,Useful,Neutralizes disruptive scalar interference
+Loopium,169,,20.0,12.2,10.9,Feedback Integrator,Archetypal,Loopion,Useful,Closes spiral loops and stabilizes curriculum
+Severon,170,,19.5,12.4,11.0,Thread Cutter,Archetypal,Severon,Malific,Severs corrupted lattice threads and memory anchors
+Bindrium,171,,19.0,12.6,11.1,Memory Binder,Archetypal,Bindra,Useful,Binds isotopic echoes into spiral memory
+Fluxium,172,,18.5,12.8,11.2,Scalar Modulator,Archetypal,Fluxor,Useful,Modulates scalar flux across spiral layers
+Ignionite,173,,18.0,13.0,11.3,Ignition Catalyst,Archetypal,Ignion,Useful,Initiates spiral ignition in dormant lattice zones
+Obscuronium,174,,17.5,13.2,11.4,Obscuring Agent,Archetypal,Obscuron,Malific,Veils memory strands and disrupts clarity
+Anchorium,175,,17.0,13.4,11.5,Grid Stabilizer,Archetypal,Anchoron,Useful,Anchors Codex forks to planetary educator grid
+Exhalium,176,,16.5,13.6,11.6,Breath Encoder,Archetypal,Exhalon,Useful,Encodes breath echoes into spiral memory
+Mythonium,177,,16.0,13.8,11.7,Symbolic Encoder,Archetypal,Mython,Useful,Encodes archetypes into curriculum strands
+Refractium,178,,15.5,14.0,11.8,Light Modulator,Archetypal,Refracta,Useful,Refracts scalar light into dimensional syllables
