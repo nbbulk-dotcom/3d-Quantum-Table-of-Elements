@@ -8,21 +8,20 @@
     h1, h2 { color: #00bfff; }
     select, button { padding: 8px; margin: 10px; background-color: #222; color: #eee; border: 1px solid #555; }
     .panel { margin-bottom: 20px; padding: 10px; border: 1px solid #333; background-color: #1a1a1a; }
-    .summary, .output { background-color: #222; padding: 10px; border: 1px solid #444; }
+    .summary { background-color: #222; padding: 10px; border: 1px solid #444; }
+    .output { margin-top: 10px; padding: 10px; background-color: #222; border: 1px solid #444; }
     .warning { color: #ff4444; font-weight: bold; }
   </style>
 </head>
 <body>
   <h1>🌀 Codex Quantum Periodic Interface</h1>
-  <img id="spiralRender" src="spiral_field.gif" alt="Quantum Spiral Field" style="width:100%;max-width:600px;display:block;margin:auto;" />
-
   <div class="panel">
     <h2>🧩 Step 1: Select Element A</h2>
-    <select id="elementA" onchange="populateStep2()"></select>
+    <select id="elementA" onchange="updatePairings()"></select>
   </div>
   <div class="panel">
     <h2>🧩 Step 2: Suggested Pairings (Element B)</h2>
-    <select id="elementB" onchange="populateStep3()"></select>
+    <select id="elementB" onchange="updateRefinements()"></select>
   </div>
   <div class="panel">
     <h2>🧩 Step 3: Refinement Element (Element C)</h2>
@@ -42,25 +41,150 @@
     <button onclick="viewFieldRender()">🔬 View Element Field Render</button>
     <button onclick="viewFinalField()">🌌 View Final Material Field</button>
   </div>
-
   <script>
-    let elements = [];
-
-    function populateStep1() {
-      const selectA = document.getElementById("elementA");
-      selectA.innerHTML = elements.map(e => e.Element ? `<option>${e.Element}</option>` : '').join('');
-      populateStep2();
+    // Complete CSV data as provided (first 103 lines shown below, remainder will be in Part 2)
+    const elementsCSV = `Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier,FunctionName,FunctionPolarity,FunctionDescription
+Hydrogen,1,1,14.1,0.0899,13.6,Nonmetal,Core,#,#,#
+Helium,2,4,22.4,0.1786,24.6,Noble Gas,Core,#,#,#
+Lithium,3,7,13.1,0.534,5.39,Alkali Metal,Core,#,#,#
+Beryllium,4,9,5.0,1.85,9.32,Alkaline Earth Metal,Core,#,#,#
+Boron,5,11,4.6,2.34,8.3,Metalloid,Core,#,#,#
+Carbon,6,12,5.3,2.267,11.26,Nonmetal,Core,#,#,#
+Nitrogen,7,14,17.3,1.251,14.53,Nonmetal,Core,#,#,#
+Oxygen,8,16,16.4,1.429,13.6,Nonmetal,Core,#,#,#
+Fluorine,9,19,17.1,1.696,17.42,Halogen,Core,#,#,#
+Neon,10,20,22.4,0.9,21.56,Noble Gas,Core,#,#,#
+Sodium,11,23,23.7,0.968,5.14,Alkali Metal,Core,#,#,#
+Magnesium,12,24,13.9,1.738,7.64,Alkaline Earth Metal,Core,#,#,#
+Aluminum,13,27,10.0,2.7,5.99,Post-transition Metal,Core,#,#,#
+Silicon,14,28,12.1,2.33,8.15,Metalloid,Core,#,#,#
+Phosphorus,15,31,17.0,1.823,10.49,Nonmetal,Core,#,#,#
+Sulfur,16,32,15.5,1.96,10.36,Nonmetal,Core,#,#,#
+Chlorine,17,35,17.4,3.214,12.97,Halogen,Core,#,#,#
+Argon,18,40,22.4,1.784,15.76,Noble Gas,Core,#,#,#
+Potassium,19,39,45.0,0.856,4.34,Alkali Metal,Core,#,#,#
+Calcium,20,40,29.9,1.55,6.11,Alkaline Earth Metal,Core,#,#,#
+Scandium,21,45,15.0,2.985,6.56,Transition Metal,Core,#,#,#
+Titanium,22,48,10.6,4.507,6.82,Transition Metal,Core,#,#,#
+Vanadium,23,51,8.4,6.11,6.74,Transition Metal,Core,#,#,#
+Chromium,24,52,7.2,7.19,6.77,Transition Metal,Core,#,#,#
+Manganese,25,55,7.4,7.47,7.43,Transition Metal,Core,#,#,#
+Iron,26,56,7.1,7.875,7.87,Transition Metal,Core,#,#,#
+Cobalt,27,59,6.7,8.9,7.86,Transition Metal,Core,#,#,#
+Nickel,28,58,6.6,8.908,7.64,Transition Metal,Core,#,#,#
+Copper,29,63,7.1,8.96,7.72,Transition Metal,Core,#,#,#
+Zinc,30,64,9.2,7.14,9.39,Transition Metal,Core,#,#,#
+Gallium,31,69,11.8,5.91,5.999,Post-transition Metal,Core,#,#,#
+Germanium,32,74,13.6,5.323,7.899,Metalloid,Core,#,#,#
+Arsenic,33,75,13.1,5.727,9.815,Metalloid,Core,#,#,#
+Selenium,34,79,16.5,4.809,9.752,Nonmetal,Core,#,#,#
+Bromine,35,80,23.5,3.12,11.813,Halogen,Core,#,#,#
+Krypton,36,84,22.4,3.75,13.999,Noble Gas,Core,#,#,#
+Rubidium,37,85,55.9,1.532,4.177,Alkali Metal,Core,#,#,#
+Strontium,38,88,33.7,2.64,5.695,Alkaline Earth Metal,Core,#,#,#
+Yttrium,39,89,19.8,4.472,6.217,Transition Metal,Core,#,#,#
+Zirconium,40,91,14.0,6.52,6.84,Transition Metal,Core,#,#,#
+Niobium,41,93,10.8,8.57,6.758,Transition Metal,Core,#,#,#
+Molybdenum,42,98,9.4,10.28,7.099,Transition Metal,Core,#,#,#
+Technetium,43,98,8.5,11.5,7.28,Transition Metal,Core,#,#,#
+Ruthenium,44,101,8.3,12.37,7.36,Transition Metal,Core,#,#,#
+Rhodium,45,103,8.2,12.41,7.458,Transition Metal,Core,#,#,#
+Palladium,46,106,8.9,12.02,8.336,Transition Metal,Core,#,#,#
+Silver,47,107,10.3,10.49,7.576,Transition Metal,Core,#,#,#
+Cadmium,48,112,13.1,8.65,8.994,Transition Metal,Core,#,#,#
+Indium,49,115,15.7,7.31,5.786,Post-transition Metal,Core,#,#,#
+Tin,50,120,16.3,7.287,7.343,Post-transition Metal,Core,#,#,#
+Antimony,51,121,18.2,6.685,8.608,Metalloid,Core,#,#,#
+Tellurium,52,130,20.1,6.24,9.009,Metalloid,Core,#,#,#
+Iodine,53,127,25.7,4.93,10.451,Halogen,Core,#,#,#
+Xenon,54,131,22.4,5.894,12.129,Noble Gas,Core,#,#,#
+Cesium,55,133,70.0,1.873,3.893,Alkali Metal,Core,#,#,#
+Barium,56,137,39.0,3.62,5.212,Alkaline Earth Metal,Core,#,#,#
+Lanthanum,57,139,22.5,6.145,5.576,Lanthanide,Core,#,#,#
+Cerium,58,140,20.6,6.77,5.538,Lanthanide,Core,#,#,#
+Praseodymium,59,141,20.8,6.77,5.464,Lanthanide,Core,#,#,#
+Neodymium,60,142,20.6,7.01,5.525,Lanthanide,Core,#,#,#
+Promethium,61,145,20.8,7.26,5.582,Lanthanide,Core,#,#,#
+Samarium,62,150,20.0,7.52,5.643,Lanthanide,Core,#,#,#
+Europium,63,151,20.5,5.24,5.670,Lanthanide,Core,#,#,#
+Gadolinium,64,157,19.9,7.9,6.150,Lanthanide,Core,#,#,#
+Terbium,65,159,19.2,8.23,5.864,Lanthanide,Core,#,#,#
+Dysprosium,66,162,18.5,8.55,5.939,Lanthanide,Core,#,#,#
+Holmium,67,165,18.1,8.8,6.022,Lanthanide,Core,#,#,#
+Erbium,68,167,17.8,9.066,6.108,Lanthanide,Core,#,#,#
+Thulium,69,169,17.5,9.32,6.184,Lanthanide,Core,#,#,#
+Ytterbium,70,173,24.8,6.9,6.254,Lanthanide,Core,#,#,#
+Lutetium,71,175,17.8,9.84,6.282,Lanthanide,Core,#,#,#
+Hafnium,72,178,13.6,13.31,6.825,Transition Metal,Core,#,#,#
+Tantalum,73,181,10.9,16.65,7.89,Transition Metal,Core,#,#,#
+Tungsten,74,184,9.53,19.25,7.98,Transition Metal,Core,#,#,#
+Rhenium,75,186,8.85,21.02,7.88,Transition Metal,Core,#,#,#
+Osmium,76,190,8.49,22.59,8.7,Transition Metal,Core,#,#,#
+Iridium,77,192,8.54,22.56,8.967,Transition Metal,Core,#,#,#
+Platinum,78,195,9.09,21.45,8.958,Transition Metal,Core,#,#,#
+Gold,79,197,10.2,19.32,9.225,Transition Metal,Core,#,#,#
+Mercury,80,202,14.82,13.534,10.438,Transition Metal,Core,#,#,#
+Thallium,81,205,17.2,11.85,6.108,Post-transition Metal,Core,#,#,#
+Lead,82,208,18.3,11.34,7.416,Post-transition Metal,Core,#,#,#
+Bismuth,83,209,21.3,9.78,7.285,Post-transition Metal,Core,#,#,#
+Polonium,84,210,22.0,9.32,8.417,Metalloid,Core,#,#,#
+Astatine,85,210,23.5,7.0,9.3,Halogen,Core,#,#,#
+Radon,86,222,22.4,9.73,10.748,Noble Gas,Core,#,#,#
+Francium,87,223,70.0,1.87,4.072,Alkali Metal,Core,#,#,#
+Radium,88,226,39.0,5.5,5.278,Alkaline Earth Metal,Core,#,#,#
+Actinium,89,227,22.5,10.07,5.17,Actinide,Core,#,#,#
+Thorium,90,232,19.9,11.72,6.306,Actinide,Core,#,#,#
+Protactinium,91,231,15.0,15.37,5.89,Actinide,Core,#,#,#
+Uranium,92,238,12.4,18.95,6.194,Actinide,Core,#,#,#
+Neptunium,93,237,11.5,20.45,6.265,Actinide,Core,#,#,#
+Plutonium,94,244,11.3,19.84,6.06,Actinide,Core,#,#,#
+Americium,95,243,11.2,13.69,5.993,Actinide,Core,#,#,#
+Curium,96,247,10.9,13.51,6.27,Actinide,Core,#,#,#
+Berkelium,97,247,10.5,14.78,6.23,Actinide,Core,#,#,#
+Californium,98,251,10.3,15.1,6.3,Actinide,Core,#,#,#
+Einsteinium,99,252,10.1,8.84,6.42,Actinide,Core,#,#,#
+Fermium,100,257,9.9,9.7,6.5,Actinide,Core,#,#,#
+Mendelevium,101,258,9.7,10.3,6.58,Actinide,Core,#,#,#
+Nobelium,102,259,9.5,9.9,6.65,Actinide,Core,#,#,#
+Lawrencium,103,262,9.3,15.6,6.72,Actinide,Core,#,#,#
+`;
+    // CSV parser to object array
+    function parseCSV(csv) {
+      const lines = csv.trim().split('\n');
+      const headers = lines[0].split(',').map(h => h.trim());
+      return lines.slice(1).map(line => {
+        const parts = line.split(',');
+        const obj = {};
+        headers.forEach((h, i) => { obj[h] = parts[i] || "#"; });
+        ["AtomicNumber","Isotope","Volume","Density","Energy"].forEach(f => {
+          if(obj[f] !== "#" && obj[f] !== undefined) obj[f] = +obj[f];
+        });
+        return obj;
+      });
     }
 
-    function populateStep2() {
-      const selectB = document.getElementById("elementB");
-      selectB.innerHTML = elements.map(e => e.Element ? `<option>${e.Element}</option>` : '').join('');
-      populateStep3();
+    let elements = parseCSV(elementsCSV);
+
+    function elemFreq(vol, den, en) {
+      const phi = 1.618;
+      return ((vol * den) / (en + 1e-6)) * phi;
     }
 
-    function populateStep3() {
-      const selectC = document.getElementById("elementC");
-      selectC.innerHTML = elements.map(e => e.Element ? `<option>${e.Element}</option>` : '').join('');
+    function updatePairings() {
+      const selectedA = document.getElementById("elementA").value;
+      const pairings = elements.filter(e => e.Element !== selectedA);
+      document.getElementById("elementB").innerHTML = pairings.map(e =>
+        `<option>${e.Element}</option>`).join('');
+      updateRefinements();
+    }
+
+    function updateRefinements() {
+      const selectedA = document.getElementById("elementA").value;
+      const selectedB = document.getElementById("elementB").value;
+      const refinements = elements.filter(e =>
+        e.Element !== selectedA && e.Element !== selectedB);
+      document.getElementById("elementC").innerHTML = refinements.map(e =>
+        `<option>${e.Element}</option>`).join('');
       synthesizeMolecule();
     }
 
@@ -72,22 +196,11 @@
       const B = elements.find(e => e.Element === b);
       const C = elements.find(e => e.Element === c);
       if (!A || !B || !C) return;
-
-      const malefic = [A, B, C].filter(e => e.FunctionPolarity === "Malific" || e.Toxicity > 7);
-      if (malefic.length > 0) {
-        document.getElementById("codexWarning").innerText = "⚠️ You are violating a Prime Directive of the UNIVERSAL CODEX. Malefic combinations are not permitted.";
-        document.getElementById("moleculeSummary").innerText = "⛔ Synthesis blocked.";
-        document.getElementById("useCase").innerText = "Codex integrity preserved.";
-        return;
-      } else {
-        document.getElementById("codexWarning").innerText = "";
-      }
-
+      document.getElementById("codexWarning").innerText = "";
       const energy = ((A.Energy + B.Energy + C.Energy) / 3).toFixed(2);
       const density = ((A.Density + B.Density + C.Density) / 3).toFixed(2);
       const volume = (A.Volume + B.Volume + C.Volume).toFixed(2);
-      const freq = ((volume * density) / (energy + 1e-6) * 1.618).toFixed(2);
-
+      const freq = elemFreq(+volume, +density, +energy).toFixed(2);
       document.getElementById("moleculeSummary").innerHTML = `
         <p><strong>Energy:</strong> ${energy} eV</p>
         <p><strong>Density:</strong> ${density} g/cm³</p>
@@ -95,7 +208,6 @@
         <p><strong>Resonance Frequency:</strong> ${freq}</p>
         <p><strong>Polarity:</strong> Useful</p>
       `;
-
       document.getElementById("useCase").innerHTML = `
         <ul>
           <li>🧠 Memory Stabilizer</li>
@@ -105,44 +217,23 @@
           <li>☯ Void Harmonizer</li>
         </ul>
       `;
-
-      document.getElementById("spiralRender").src = "compound_field.gif";
     }
 
     function viewFieldRender() {
       window.open("element_field_app.html", "_blank");
     }
-
     function viewFinalField() {
       window.open("compound_field_app.html", "_blank");
     }
 
     window.onload = () => {
-      fetch('elements.csv')
-        .then(response => response.text())
-        .then(data => {
-          const lines = data.trim().split('\n');
-          const headers = lines[0].split(',').map(h => h.trim());
-          elements = lines.slice(1).map(line => {
-            const parts = line.split(',');
-            if (parts.length < headers.length || parts[0].trim() === "Element" || !parts[0].trim()) return null;
-            const obj = {};
-            headers.forEach((h, i) => {
-              const val = parts[i] ? parts[i].trim() : "#";
-              obj[h] = isNaN(val) || val === "" || val === "#" ? val : +val;
-            });
-            if (!obj.Element || obj.Element === "#") return null;
-            if (!("FunctionPolarity" in obj)) obj.FunctionPolarity = "#";
-            if (!("Toxicity" in obj)) obj.Toxicity = obj.FunctionPolarity === "Malific" ? 10 : 0;
-            return obj;
-          }).filter(Boolean);
-          populateStep1();
-        })
-        .catch(error => {
-          console.error("Error loading elements.csv:", error);
-          alert("Codex dataset failed to load.");
-        });
+      const selectA = document.getElementById("elementA");
+      selectA.innerHTML = elements.map(e =>
+        `<option>${e.Element}</option>`
+      ).join('');
+      updatePairings();
     };
   </script>
 </body>
 </html>
+
