@@ -18,11 +18,11 @@
 
   <div class="panel">
     <h2>🧩 Step 1: Select Element A</h2>
-    <select id="elementA" onchange="updatePairings()"></select>
+    <select id="elementA" onchange="populateStep2()"></select>
   </div>
   <div class="panel">
     <h2>🧩 Step 2: Suggested Pairings (Element B)</h2>
-    <select id="elementB" onchange="updateRefinements()"></select>
+    <select id="elementB" onchange="populateStep3()"></select>
   </div>
   <div class="panel">
     <h2>🧩 Step 3: Refinement Element (Element C)</h2>
@@ -46,33 +46,21 @@
   <script>
     let elements = [];
 
-    function elemFreq(vol, den, en) {
-      const phi = 1.618;
-      return ((vol * den) / (en + 1e-6)) * phi;
-    }
-
-    function populateDropdowns() {
+    function populateStep1() {
       const selectA = document.getElementById("elementA");
-      selectA.innerHTML = elements.map(e => `<option>${e.Element}</option>`).join('');
-      updatePairings();
+      selectA.innerHTML = elements.map(e => e.Element ? `<option>${e.Element}</option>` : '').join('');
+      populateStep2();
     }
-function updatePairings() {
-  const selectB = document.getElementById("elementB");
-  if (!selectB || !elements.length) return;
-  selectB.innerHTML = elements.map(e => {
-    return e.Element ? `<option>${e.Element}</option>` : '';
-  }).join('');
-  updateRefinements();
-}
 
-}
+    function populateStep2() {
+      const selectB = document.getElementById("elementB");
+      selectB.innerHTML = elements.map(e => e.Element ? `<option>${e.Element}</option>` : '').join('');
+      populateStep3();
+    }
 
-
-
-    function updateRefinements() {
-      const refinements = elements.filter(e => !e.FunctionPolarity || e.FunctionPolarity === "Useful");
+    function populateStep3() {
       const selectC = document.getElementById("elementC");
-      selectC.innerHTML = refinements.map(e => `<option>${e.Element}</option>`).join('');
+      selectC.innerHTML = elements.map(e => e.Element ? `<option>${e.Element}</option>` : '').join('');
       synthesizeMolecule();
     }
 
@@ -85,7 +73,7 @@ function updatePairings() {
       const C = elements.find(e => e.Element === c);
       if (!A || !B || !C) return;
 
-      const malefic = [A, B, C].filter(e => e.FunctionPolarity === "Malific");
+      const malefic = [A, B, C].filter(e => e.FunctionPolarity === "Malific" || e.Toxicity > 7);
       if (malefic.length > 0) {
         document.getElementById("codexWarning").innerText = "⚠️ You are violating a Prime Directive of the UNIVERSAL CODEX. Malefic combinations are not permitted.";
         document.getElementById("moleculeSummary").innerText = "⛔ Synthesis blocked.";
@@ -98,7 +86,7 @@ function updatePairings() {
       const energy = ((A.Energy + B.Energy + C.Energy) / 3).toFixed(2);
       const density = ((A.Density + B.Density + C.Density) / 3).toFixed(2);
       const volume = (A.Volume + B.Volume + C.Volume).toFixed(2);
-      const freq = elemFreq(+volume, +density, +energy).toFixed(2);
+      const freq = ((volume * density) / (energy + 1e-6) * 1.618).toFixed(2);
 
       document.getElementById("moleculeSummary").innerHTML = `
         <p><strong>Energy:</strong> ${energy} eV</p>
@@ -137,16 +125,18 @@ function updatePairings() {
           const headers = lines[0].split(',').map(h => h.trim());
           elements = lines.slice(1).map(line => {
             const parts = line.split(',');
-            if (parts[0] === "Element") return null;
+            if (parts.length < headers.length || parts[0].trim() === "Element" || !parts[0].trim()) return null;
             const obj = {};
             headers.forEach((h, i) => {
               const val = parts[i] ? parts[i].trim() : "#";
               obj[h] = isNaN(val) || val === "" || val === "#" ? val : +val;
             });
+            if (!obj.Element || obj.Element === "#") return null;
             if (!("FunctionPolarity" in obj)) obj.FunctionPolarity = "#";
+            if (!("Toxicity" in obj)) obj.Toxicity = obj.FunctionPolarity === "Malific" ? 10 : 0;
             return obj;
           }).filter(Boolean);
-          populateDropdowns();
+          populateStep1();
         })
         .catch(error => {
           console.error("Error loading elements.csv:", error);
