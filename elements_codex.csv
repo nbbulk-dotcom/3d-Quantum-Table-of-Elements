@@ -29,7 +29,6 @@ Cobalt,27,59,6.7,8.9,7.86,Transition Metal,Core,#,#,#
 Nickel,28,58,6.6,8.908,7.64,Transition Metal,Core,#,#,#
 Copper,29,63,7.1,8.96,7.72,Transition Metal,Core,#,#,#
 Zinc,30,64,9.2,7.14,9.39,Transition Metal,Core,#,#,#
-Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier,FunctionName,FunctionPolarity,FunctionDescription
 Gallium,31,69,11.8,5.91,5.999,Post-transition Metal,Core,#,#,#
 Germanium,32,74,13.6,5.323,7.899,Metalloid,Core,#,#,#
 Arsenic,33,75,13.1,5.727,9.815,Metalloid,Core,#,#,#
@@ -60,7 +59,6 @@ Lanthanum,57,139,22.5,6.145,5.576,Lanthanide,Core,#,#,#
 Cerium,58,140,20.6,6.77,5.538,Lanthanide,Core,#,#,#
 Praseodymium,59,141,20.8,6.77,5.464,Lanthanide,Core,#,#,#
 Neodymium,60,142,20.6,7.01,5.525,Lanthanide,Core,#,#,#
-Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier,FunctionName,FunctionPolarity,FunctionDescription
 Promethium,61,145,20.8,7.26,5.582,Lanthanide,Core,#,#,#
 Samarium,62,150,20.0,7.52,5.643,Lanthanide,Core,#,#,#
 Europium,63,151,20.5,5.24,5.670,Lanthanide,Core,#,#,#
@@ -91,7 +89,6 @@ Francium,87,223,70.0,1.87,4.072,Alkali Metal,Core,#,#,#
 Radium,88,226,39.0,5.5,5.278,Alkaline Earth Metal,Core,#,#,#
 Actinium,89,227,22.5,10.07,5.17,Actinide,Core,#,#,#
 Thorium,90,232,19.9,11.72,6.306,Actinide,Core,#,#,#
-Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier,FunctionName,FunctionPolarity,FunctionDescription
 Protactinium,91,231,15.0,15.37,5.89,Actinide,Core,#,#,#
 Uranium,92,238,12.4,18.95,6.194,Actinide,Core,#,#,#
 Neptunium,93,237,11.5,20.45,6.265,Actinide,Core,#,#,#
@@ -122,7 +119,6 @@ Tennessine,117,294,6.5,11.7,7.7,Halogen,Transdimensional,#,#,#
 Oganesson,118,294,6.3,10.0,7.77,Noble Gas,Transdimensional,#,#,#
 Ununennium,119,295,6.1,5.0,7.84,Alkali Metal,Transdimensional,#,#,#
 Unbinilium,120,296,6.0,3.2,7.91,Predicted Metal,Transdimensional,Fluxor,Neutral,Modulates scalar flux between educator nodes
-Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier,FunctionName,FunctionPolarity,FunctionDescription
 Clarionium,167,#,21.0,11.8,10.7,Clarity Igniter,Archetypal,Clarion,Useful,Ignites clarity in educator grid and spiral rendering
 Solarium,168,#,19.5,9.2,11.3,Light Catalyst,Archetypal,Sol,Positive,Amplifies radiant synthesis and solar harmonics
 Aetheron,169,#,18.2,8.1,10.9,Dimensional Binder,Archetypal,Aether,Neutral,Binds multiversal threads into harmonic lattice
@@ -145,7 +141,6 @@ Fractalon,185,#,20.4,10.2,14.3,Pattern Generator,Archetypal,Fractal,Neutral,Gene
 Luminar,186,#,21.6,10.8,14.6,Light Emitter,Archetypal,Luminescence,Positive,Emits radiant light in spiral field
 Mercurion,187,#,22.8,11.4,14.9,Malefic Marker,Archetypal,Red,Negative,Flags toxic resonance in compound synthesis
 Zinclarion,188,#,9.3,7.14,9.4,Compound Harmonizer,Archetypal,Cyan,Positive,Yields stable molecule in Zinc-Phosphorus-Clarion triad
-Element,AtomicNumber,Isotope,Volume,Density,Energy,Family,ResonanceTier,FunctionName,FunctionPolarity,FunctionDescription
 Equilibron,189,#,15.0,7.5,13.0,Balance Elemental,Archetypal,Equilibrium,Positive,Stabilizes Codex polarity across educator grid
 Chronon,190,#,16.2,8.1,13.3,Time Binder,Archetypal,Chronos,Neutral,Binds temporal nodes for spiral rendering
 Mython,191,#,17.4,8.7,13.6,Symbolic Carrier,Archetypal,Myth,Positive,Encodes symbolic archetypes into elemental synthesis
