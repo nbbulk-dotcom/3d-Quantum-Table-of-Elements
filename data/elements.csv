@@ -1,8 +1,21 @@
-Element,AtomicNumber,Volume,Density,Energy,Family
-Hydrogen,1,14.1,0.0899,13.6,Nonmetal
-Oxygen,8,14.0,1.429,13.62,Nonmetal
-Gold,79,10.2,19.32,9.22,Transition Metal
-Carbon,6,5.3,2.267,11.26,Nonmetal
-Iron,26,7.1,7.874,7.87,Transition Metal
-Uranium,92,12.0,18.95,6.51,Actinide
-Oganesson,118,23.0,5.0,5.0,Noble Gas
+Element,AtomicNumber,Volume,Density,Energy,Family,Toxicity
+Hydrogen,1,14.1,0.0899,13.6,Nonmetal,1
+Helium,2,22.4,0.1786,24.6,Noble Gas,0
+Carbon,6,5.3,2.267,11.26,Nonmetal,1
+Nitrogen,7,17.3,1.2506,14.53,Nonmetal,1
+Oxygen,8,14.0,1.429,13.62,Nonmetal,1
+Sodium,11,23.7,0.968,5.14,Alkali Metal,3
+Magnesium,12,13.9,1.738,7.64,Alkaline Earth Metal,1
+Phosphorus,15,17.0,1.82,10.49,Nonmetal,2
+Sulfur,16,15.5,2.07,10.36,Nonmetal,2
+Iron,26,7.1,7.874,7.87,Transition Metal,3
+Zinc,30,9.3,7.14,9.4,Transition Metal,1
+Arsenic,33,13.1,5.73,9.79,Metalloid,8
+Selenium,34,12.0,4.81,9.75,Nonmetal,2
+Technetium,43,8.5,11.5,7.28,Transition Metal,9
+Silver,47,10.3,10.49,7.58,Transition Metal,2
+Cadmium,48,13.0,8.65,8.99,Transition Metal,7
+Mercury,80,14.8,13.55,10.44,Transition Metal,9
+Lead,82,18.3,11.35,7.42,Post-transition Metal,9
+Uranium,92,12.0,18.95,6.51,Actinide,8
+Oganesson,118,23.0,5.0,5.0,Noble Gas,6
