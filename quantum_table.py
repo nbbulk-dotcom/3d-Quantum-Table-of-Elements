@@ -81,6 +81,22 @@ def coupling_graph():
         glyph = row.get('FunctionName', '')[:3]
         ax.text(row['x'], row['y'], row['z'], glyph, fontsize=8, color='white', alpha=0.6)
 
+def toxicity_nullify(target):
+    row = data[data['Element'] == target].iloc[0]
+    freq = elem_freq(row['Volume'], row['Density'], row['Energy'])
+    tox = row['Toxicity']
+    phi = 1.618
+
+    # Scalar wave emission logic
+    null_freq = round(phi * (10 - tox) / 10, 2)  # Higher toxicity → lower null freq
+    delta = round(abs(freq - null_freq), 4)
+
+    if delta < 0.1:
+        print(f"✅ {target} nullified via scalar wave at freq {null_freq} (Δ = {delta})")
+        ax.text(row['x'], row['y'], row['z'], f"{target} ☯", color='cyan', fontsize=10)
+    else:
+        print(f"⚠️ {target} not nullified (Δ = {delta}) — adjust wave alignment")
+
 # === Execute Enhancements ===
 transmutate()
 coupling_graph()
