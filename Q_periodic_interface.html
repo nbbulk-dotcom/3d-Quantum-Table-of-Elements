@@ -57,14 +57,14 @@
       updatePairings();
     }
 function updatePairings() {
-  const selectedA = document.getElementById("elementA").value;
-  const base = elements.find(e => e.Element === selectedA);
-  if (!base) return;
-  const baseFreq = elemFreq(base.Volume, base.Density, base.Energy);
-  const pairings = elements.filter(e => Math.abs(elemFreq(e.Volume, e.Density, e.Energy) - baseFreq) < 0.5 && (e.Toxicity < 3));
   const selectB = document.getElementById("elementB");
-  selectB.innerHTML = pairings.map(e => `<option>${e.Element}</option>`).join('');
+  if (!selectB || !elements.length) return;
+  selectB.innerHTML = elements.map(e => {
+    return e.Element ? `<option>${e.Element}</option>` : '';
+  }).join('');
   updateRefinements();
+}
+
 }
 
 
