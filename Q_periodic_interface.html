@@ -8,43 +8,35 @@
     h1, h2 { color: #00bfff; }
     select, button { padding: 8px; margin: 10px; background-color: #222; color: #eee; border: 1px solid #555; }
     .panel { margin-bottom: 20px; padding: 10px; border: 1px solid #333; background-color: #1a1a1a; }
-    .summary { background-color: #222; padding: 10px; border: 1px solid #444; }
-    .output { margin-top: 10px; padding: 10px; background-color: #222; border: 1px solid #444; }
+    .summary, .output { background-color: #222; padding: 10px; border: 1px solid #444; }
     .warning { color: #ff4444; font-weight: bold; }
   </style>
 </head>
-<!--spiral Gif/ -->
-<img id="spiralRender" src="spiral_field.gif" alt="Quantum Spiral Field" style="width:100%;max-width:600px;display:block;margin:auto;" />
-
-  <body>
+<body>
   <h1>🌀 Codex Quantum Periodic Interface</h1>
+  <img id="spiralRender" src="spiral_field.gif" alt="Quantum Spiral Field" style="width:100%;max-width:600px;display:block;margin:auto;" />
 
   <div class="panel">
     <h2>🧩 Step 1: Select Element A</h2>
     <select id="elementA" onchange="updatePairings()"></select>
   </div>
-
   <div class="panel">
     <h2>🧩 Step 2: Suggested Pairings (Element B)</h2>
     <select id="elementB" onchange="updateRefinements()"></select>
   </div>
-
   <div class="panel">
     <h2>🧩 Step 3: Refinement Element (Element C)</h2>
     <select id="elementC" onchange="synthesizeMolecule()"></select>
   </div>
-
   <div class="panel">
     <h2>🧬 Final Molecule Synthesis</h2>
     <div id="moleculeSummary" class="summary">Select all three elements to view synthesis.</div>
     <div id="codexWarning" class="warning"></div>
   </div>
-
   <div class="panel">
     <h2>🔍 Observable Use Case</h2>
     <div id="useCase" class="output">Awaiting synthesis...</div>
   </div>
-
   <div class="panel">
     <h2>🖼️ Field Visualization</h2>
     <button onclick="viewFieldRender()">🔬 View Element Field Render</button>
@@ -68,16 +60,21 @@
     function updatePairings() {
       const selectedA = document.getElementById("elementA").value;
       const base = elements.find(e => e.Element === selectedA);
+      if (!base) return;
       const baseFreq = elemFreq(base.Volume, base.Density, base.Energy);
-      const pairings = elements.filter(e => Math.abs(elemFreq(e.Volume, e.Density, e.Energy) - baseFreq) < 0.5 && e.Toxicity < 3);
+      const pairings = elements.filter(e => {
+        const freqMatch = Math.abs(elemFreq(e.Volume, e.Density, e.Energy) - baseFreq) < 0.5;
+        const polaritySafe = !e.FunctionPolarity || e.FunctionPolarity === "Useful";
+        return freqMatch && polaritySafe;
+      });
       const selectB = document.getElementById("elementB");
       selectB.innerHTML = pairings.map(e => `<option>${e.Element}</option>`).join('');
       updateRefinements();
     }
 
     function updateRefinements() {
+      const refinements = elements.filter(e => !e.FunctionPolarity || e.FunctionPolarity === "Useful");
       const selectC = document.getElementById("elementC");
-      const refinements = elements.filter(e => e.Toxicity === 0);
       selectC.innerHTML = refinements.map(e => `<option>${e.Element}</option>`).join('');
       synthesizeMolecule();
     }
@@ -89,8 +86,9 @@
       const A = elements.find(e => e.Element === a);
       const B = elements.find(e => e.Element === b);
       const C = elements.find(e => e.Element === c);
+      if (!A || !B || !C) return;
 
-      const malefic = [A, B, C].filter(e => e.Toxicity > 7);
+      const malefic = [A, B, C].filter(e => e.FunctionPolarity === "Malific");
       if (malefic.length > 0) {
         document.getElementById("codexWarning").innerText = "⚠️ You are violating a Prime Directive of the UNIVERSAL CODEX. Malefic combinations are not permitted.";
         document.getElementById("moleculeSummary").innerText = "⛔ Synthesis blocked.";
@@ -122,6 +120,8 @@
           <li>☯ Void Harmonizer</li>
         </ul>
       `;
+
+      document.getElementById("spiralRender").src = "compound_field.gif";
     }
 
     function viewFieldRender() {
@@ -137,15 +137,18 @@
         .then(response => response.text())
         .then(data => {
           const lines = data.trim().split('\n');
-          const headers = lines[0].split('\t');
+          const headers = lines[0].split(',').map(h => h.trim());
           elements = lines.slice(1).map(line => {
-            const parts = line.split('\t');
+            const parts = line.split(',');
+            if (parts[0] === "Element") return null;
             const obj = {};
             headers.forEach((h, i) => {
-              obj[h.trim()] = isNaN(parts[i]) ? parts[i].trim() : +parts[i];
+              const val = parts[i] ? parts[i].trim() : "#";
+              obj[h] = isNaN(val) || val === "" || val === "#" ? val : +val;
             });
+            if (!("FunctionPolarity" in obj)) obj.FunctionPolarity = "#";
             return obj;
-          });
+          }).filter(Boolean);
           populateDropdowns();
         })
         .catch(error => {
