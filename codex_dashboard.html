@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>🧠 Codex Educator Dashboard</title>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    body {
+      background-color: #111;
+      color: #eee;
+      font-family: Arial, sans-serif;
+      margin: 20px;
+    }
+    h1, h2 {
+      color: #00bfff;
+    }
+    select, button {
+      padding: 8px;
+      margin: 10px;
+      background-color: #222;
+      color: #eee;
+      border: 1px solid #555;
+    }
+    .panel {
+      margin-bottom: 20px;
+      padding: 10px;
+      border: 1px solid #333;
+      background-color: #1a1a1a;
+    }
+    .output {
+      background-color: #222;
+      padding: 10px;
+      border: 1px solid #444;
+    }
+    .warning {
+      color: #ff4444;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>🧠 Codex Educator Dashboard</h1>
+
+  <div class="panel">
+    <h2>🧩 Select Elements</h2>
+    <select id="elementA" onchange="synthesizeCompound()"></select>
+    <select id="elementB" onchange="synthesizeCompound()"></select>
+    <select id="elementC" onchange="synthesizeCompound()"></select>
+  </div>
+
+  <div class="panel">
+    <h2>🧬 Compound Synthesis</h2>
+    <div id="compoundSummary" class="output">Select elements to view synthesis.</div>
+    <div id="codexWarning" class="warning"></div>
+  </div>
+
+  <div class="panel">
+    <h2>🌀 Spiral Glyph Overlay</h2>
+    <div id="glyphOverlay" class="output">Awaiting synthesis...</div>
+  </div>
+
+  <div class="panel">
+    <h2>☯ Nullification Suggestions</h2>
+    <div id="nullifyOutput" class="output">Awaiting synthesis...</div>
+  </div>
+
+  <div class="panel">
+    <h2>📜 Codex Scroll Export</h2>
+    <button onclick="exportScroll()">📝 Export to Codex Scroll</button>
+    <div id="scrollOutput" class="output"></div>
+  </div>
+
+  <script>
+    const elements = [
+      { Element: "Hydrogen", Volume: 14.1, Density: 0.0899, Energy: 13.6, Toxicity: 1 },
+      { Element: "Oxygen", Volume: 14.0, Density: 1.429, Energy: 13.62, Toxicity: 1 },
+      { Element: "Zinc", Volume: 9.3, Density: 7.14, Energy: 9.4, Toxicity: 1 },
+      { Element: "Phosphorus", Volume: 17.0, Density: 1.82, Energy: 10.49, Toxicity: 2 },
+      { Element: "Magnesium", Volume: 13.9, Density: 1.738, Energy: 7.64, Toxicity: 1 },
+      { Element: "Helium", Volume: 22.4, Density: 0.1786, Energy: 24.6, Toxicity: 0 },
+      { Element: "Mercury", Volume: 14.8, Density: 13.55, Energy: 10.44, Toxicity: 9 },
+      { Element: "Lead", Volume: 18.3, Density: 11.35, Energy: 7.42, Toxicity: 9 },
+      { Element: "Uranium", Volume: 12.0, Density: 18.95, Energy: 6.51, Toxicity: 8 },
+      { Element: "Neutronium", Volume: 0.0, Density: 0.0, Energy: 0.0, Toxicity: 0 },
+      { Element: "Clarion", Volume: 11.2, Density: 6.1, Energy: 9.1, Toxicity: 0 },
+      { Element: "Vaulton", Volume: 10.5, Density: 5.9, Energy: 8.8, Toxicity: 0 },
+      { Element: "Bindra", Volume: 12.3, Density: 6.4, Energy: 9.3, Toxicity: 0 },
+      { Element: "Loopion", Volume: 13.1, Density: 6.8, Energy: 9.7, Toxicity: 0 }
+    ];
+
+    function elemFreq(vol, den, en) {
+      const phi = 1.618;
+      return ((vol * den) / (en + 1e-6)) * phi;
+    }
+    function synthesizeCompound() {
+      const a = document.getElementById("elementA").value;
+      const b = document.getElementById("elementB").value;
+      const c = document.getElementById("elementC").value;
+      const A = elements.find(e => e.Element === a);
+      const B = elements.find(e => e.Element === b);
+      const C = elements.find(e => e.Element === c);
+
+      const compound = [A, B, C];
+      const malefic = compound.filter(e => e.Toxicity > 7);
+      const warningText = malefic.length > 0
+        ? "⚠️ Codex Alert: This compound contains malefic elements. Proceed with caution."
+        : "";
+
+      const energy = ((A.Energy + B.Energy + C.Energy) / 3).toFixed(2);
+      const density = ((A.Density + B.Density + C.Density) / 3).toFixed(2);
+      const volume = (A.Volume + B.Volume + C.Volume).toFixed(2);
+      const freq = elemFreq(+volume, +density, +energy).toFixed(2);
+
+      document.getElementById("compoundSummary").innerHTML = `
+        <p><strong>Energy:</strong> ${energy} eV</p>
+        <p><strong>Density:</strong> ${density} g/cm³</p>
+        <p><strong>Volume:</strong> ${volume} cm³/mol</p>
+        <p><strong>Resonance Frequency:</strong> ${freq}</p>
+        <p><strong>Polarity:</strong> ${malefic.length > 0 ? "Malefic" : "Useful"}</p>
+      `;
+      document.getElementById("codexWarning").innerText = warningText;
+
+      // Spiral glyph overlay
+      const glyphAB = generateCouplingGraph(A, B);
+      const glyphBC = generateCouplingGraph(B, C);
+      const glyphAC = generateCouplingGraph(A, C);
+      document.getElementById("glyphOverlay").innerHTML = `
+        <ul>
+          <li>${glyphAB.ElementA} ↔ ${glyphAB.ElementB}: ΔFreq ${glyphAB.ΔFreq}, Polarity ${glyphAB.Polarity}</li>
+          <li>${glyphBC.ElementA} ↔ ${glyphBC.ElementB}: ΔFreq ${glyphBC.ΔFreq}, Polarity ${glyphBC.Polarity}</li>
+          <li>${glyphAC.ElementA} ↔ ${glyphAC.ElementB}: ΔFreq ${glyphAC.ΔFreq}, Polarity ${glyphAC.Polarity}</li>
+        </ul>
+      `;
+
+      // Nullification suggestions
+      const nullifiers = toxicityNullify(compound);
+      document.getElementById("nullifyOutput").innerHTML = nullifiers.length > 0
+        ? `<ul>${nullifiers.map(n => `<li>${n.Element}</li>`).join('')}</ul>`
+        : "No nullifiers required.";
+    }
+
+    function exportScroll() {
+      const a = document.getElementById("elementA").value;
+      const b = document.getElementById("elementB").value;
+      const c = document.getElementById("elementC").value;
+      const A = elements.find(e => e.Element === a);
+      const B = elements.find(e => e.Element === b);
+      const C = elements.find(e => e.Element === c);
+
+      const scroll = {
+        CompoundID: `Codex-${Date.now()}`,
+        TimestampUTC: new Date().toISOString(),
+        Elements: [A.Element, B.Element, C.Element],
+        ResonanceFrequency: elemFreq(
+          A.Volume + B.Volume + C.Volume,
+          (A.Density + B.Density + C.Density) / 3,
+          (A.Energy + B.Energy + C.Energy) / 3
+        ).toFixed(3),
+        Polarity: [A, B, C].some(e => e.Toxicity > 7) ? "Malefic" : "Useful",
+        ToxicityFlags: [A, B, C].filter(e => e.Toxicity > 7).map(e => e.Element)
+      };
+
+      document.getElementById("scrollOutput").innerText = JSON.stringify(scroll, null, 2);
+    }
+
+    function generateCouplingGraph(elementA, elementB) {
+      const freqA = elemFreq(elementA.Volume, elementA.Density, elementA.Energy);
+      const freqB = elemFreq(elementB.Volume, elementB.Density, elementB.Energy);
+      const delta = Math.abs(freqA - freqB);
+
+      const polarity = delta < 0.3 ? "Harmonic" :
+                       delta < 0.8 ? "Neutral" :
+                       "Disruptive";
+
+      return {
+        ElementA: elementA.Element,
+        ElementB: elementB.Element,
+        ΔFreq: delta.toFixed(3),
+        Polarity: polarity
+      };
+    }
+
+    function toxicityNullify(compound) {
+      const maleficElements = compound.filter(e => e.Toxicity > 7);
+      if (maleficElements.length === 0) return [];
+
+      const avgFreq = elemFreq(
+        (compound[0].Volume + compound[1].Volume + compound[2].Volume) / 3,
+        (compound[0].Density + compound[1].Density + compound[2].Density) / 3,
+        (compound[0].Energy + compound[1].Energy + compound[2].Energy) / 3
+      );
+
+      const nullifiers = elements.filter(e => {
+        const freq = elemFreq(e.Volume, e.Density, e.Energy);
+        return e.Toxicity === 0 && Math.abs(freq - avgFreq) < 1.0;
+      });
+
+      return nullifiers.slice(0, 3);
+    }
+
+    window.onload = function() {
+      const selectA = document.getElementById("elementA");
+      const selectB = document.getElementById("elementB");
+      const selectC = document.getElementById("elementC");
+      const options = elements.map(e => `<option value="${e.Element}">${e.Element}</option>`).join('');
+      selectA.innerHTML = options;
+      selectB.innerHTML = options;
+      selectC.innerHTML = options;
+      synthesizeCompound();
+    };
+  </script>
+
+</body>
+</html>
